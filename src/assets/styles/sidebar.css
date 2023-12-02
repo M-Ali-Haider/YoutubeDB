@@ -1,7 +1,7 @@
 .sidebar{
     width: 72px;
     padding-left: 8px;
-    transition: width 0.3s ease;
+    transition: width 0.25s ease;
 }
 .sidebar:hover{
     padding-right: 0px;
