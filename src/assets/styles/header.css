@@ -46,12 +46,25 @@ header{
     background-color: #ccc;
 }
 .yt-searchbar{
-    width: 70%;
+    width: 90%;
     height: 40px;
     display: flex;
     align-items: center;
+    justify-content: end;
 }
-.yt-searchbar input{
+.yt-input-div{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.search-abs{
+    position: absolute;
+    left: 12px;
+    z-index: 4;
+}
+.yt-input{
     width: 100%;
     height: 100%;
     border: 1px solid #ccc;
@@ -59,11 +72,21 @@ header{
     border-radius: 25px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    padding: 0px 15px;
+    padding-left:15px;
     font-size: 16px;
+    z-index: 3;
 }
-.yt-searchbar input:focus{
-    outline: none;
+.input-focused{
+    width: calc(70% + 30px);
+}
+.input-padded{
+    padding-left: 45px;
+}
+.yt-input:focus{
+    outline:0.00001px solid #3ea6ff;
+}
+.display-none{
+    display: none;
 }
 .search{
     width: 64px;
@@ -101,6 +124,7 @@ header{
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
+    margin-right: 5px;
 }
 .c-pfp img{
     width: 100%;
@@ -120,11 +144,11 @@ header{
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     gap: 15px;
 }
 .header-third{
-    width: 17%;
+    width: 25%;
     height: 100%;
     display: flex;
     align-items: center;
