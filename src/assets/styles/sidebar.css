@@ -1,7 +1,13 @@
 .sidebar{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 9%;
     width: 72px;
     padding-left: 8px;
     transition: width 0.25s ease;
+    background-color: #fff;
+    z-index: 10;
 }
 .sidebar:hover{
     padding-right: 0px;
@@ -78,6 +84,9 @@
 
 .sb-active{
     background-color: #f3f3f3;
+}
+.sb-active{
+    font-weight: 500;
 }
 .sb-active:hover{
     background-color: #ddd;

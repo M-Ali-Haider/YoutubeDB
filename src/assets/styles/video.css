@@ -1,0 +1,17 @@
+.video{
+    flex: 1;
+    max-width: 382px;
+    min-width: 324px;
+    border: 1px solid black;
+    overflow: hidden;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+.thumbnail{
+    width: 100%;
+    height: 182px;
+}
+.vid-details{
+    width: 100%;
+    height: 100px;
+}

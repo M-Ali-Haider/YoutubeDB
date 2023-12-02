@@ -1,5 +1,7 @@
 import Header from './components/header'
-import Body from './components/body';
+import Sidebar from './components/sidebar';
+import Tags from './components/tags.jsx';
+import Main from './components/mai.jsx';
 import './App.css'
 import { useState } from 'react'
 function App() {
@@ -27,7 +29,13 @@ function App() {
       handleInputBlur={handleInputBlur}
       handleSidebar={handleSidebar}
     />
-    <Body
+    <Sidebar
+      isSidebarOpen={isSidebarOpen}
+    />
+    <Tags
+      isSidebarOpen={isSidebarOpen}
+    />
+    <Main
       isSidebarOpen={isSidebarOpen}
     />
     </>

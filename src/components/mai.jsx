@@ -1,11 +1,13 @@
+import '../assets/styles/tags.css'
 import '../assets/styles/main.css'
-import Tags from './tags';
-const Main=()=>{
+import Grid from './grid'
+const Main=({isSidebarOpen})=>{
     return(
         <>
-        <div className="main">
-            <Tags />
-        </div>
+        <main>
+            <div className={`tags-helper ${isSidebarOpen ? 'tags-helper-active' : ''}`}></div>
+            <Grid />
+        </main>
         </>
     )
 }   
