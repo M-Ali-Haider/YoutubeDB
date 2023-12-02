@@ -59,13 +59,6 @@ header{
     align-items: center;
     position: relative;
 }
-.search-abs{
-    position: absolute;
-    left: 12px;
-    z-index: 4;
-    width: 19px;
-    height: 19px;
-}
 .yt-input{
     width: 100%;
     height: 100%;
@@ -78,15 +71,24 @@ header{
     font-size: 16px;
     z-index: 3;
 }
+.yt-input:focus{
+    height: calc(100% - 1.5px);
+    outline:0.5px solid #3ea6ff;
+}
+.search-abs{
+    position: absolute;
+    left: 12px;
+    z-index: 4;
+    width: 19px;
+    height: 19px;
+}
 .input-focused{
     width: calc(70% + 30px);
 }
 .input-padded{
     padding-left: 45px;
 }
-.yt-input:focus{
-    outline:0.00001px solid #3ea6ff;
-}
+
 .display-none{
     display: none;
 }

@@ -1,15 +1,25 @@
 import Header from './components/header'
+import Sidebar from './components/sidebar';
 import './App.css'
 import { useState } from 'react'
 function App() {
   const [isInputFocused,setIsInputFocused]=useState(false);
+  const [isSidebarOpen,setSidebarStatus]=useState(false);
   const handleInputFocus=()=>{
     setIsInputFocused(true);
-    console.log("search bar focused")
   }
   const handleInputBlur=()=>{
     setIsInputFocused(false);
-    console.log("search bar NOT focused")
+  }
+  const handleSidebar=()=>{
+    if(isSidebarOpen){
+      setSidebarStatus(false);
+      console.log('Close Sidebar')
+    }
+    else{
+      setSidebarStatus(true);
+      console.log('Open Sidebar')
+    }
   }
   return (
     <>
@@ -17,6 +27,10 @@ function App() {
       isInputFocused={isInputFocused}
       handleInputFocus={handleInputFocus}
       handleInputBlur={handleInputBlur}
+      handleSidebar={handleSidebar}
+    />
+    <Sidebar
+      isSidebarOpen={isSidebarOpen}
     />
     </>
   )

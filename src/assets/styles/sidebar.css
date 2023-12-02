@@ -1,0 +1,12 @@
+.sidebar{
+    position: fixed;
+    top: 9%;
+    left: 0;
+    bottom: 0;
+    width: 72px;
+    border: 5px solid red;
+    transition: width 0.3s ease;
+}
+.sidebar-extended{
+    width: 200px;
+}
