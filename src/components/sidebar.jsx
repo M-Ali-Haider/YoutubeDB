@@ -1,16 +1,15 @@
 import '../assets/styles/sidebar.css'
-const Sidebar=(isSidebarOpen)=>{
-    console.log(isSidebarOpen);
+const Sidebar=({isSidebarOpen})=>{
     return(
         <>
-        <div className="sidebar">
+        <div className={`sidebar ${isSidebarOpen ? 'sidebar-extended' : ''}`}>
             {isSidebarOpen ? (
                 <div className="sidebar-close">
-                    its close
+
                 </div>
             ) : (
                 <div className="sidebar-open">
-                    its open
+                    
                 </div>
             )}
         </div>

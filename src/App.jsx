@@ -1,5 +1,5 @@
 import Header from './components/header'
-import Sidebar from './components/sidebar';
+import Body from './components/body';
 import './App.css'
 import { useState } from 'react'
 function App() {
@@ -14,11 +14,9 @@ function App() {
   const handleSidebar=()=>{
     if(isSidebarOpen){
       setSidebarStatus(false);
-      console.log('Close Sidebar')
     }
     else{
       setSidebarStatus(true);
-      console.log('Open Sidebar')
     }
   }
   return (
@@ -29,7 +27,7 @@ function App() {
       handleInputBlur={handleInputBlur}
       handleSidebar={handleSidebar}
     />
-    <Sidebar
+    <Body
       isSidebarOpen={isSidebarOpen}
     />
     </>
