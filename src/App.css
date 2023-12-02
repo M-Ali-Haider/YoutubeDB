@@ -1,0 +1,43 @@
+@media (max-width:550px){
+    .sidebar{
+        width: 0px;
+        padding-left: 0px;
+    }
+    header{
+        height: 7%;
+    }
+    .header-third{
+        width: 60%;
+    }
+    .sidebar-close,
+    .sidebar-open,
+    .tags-helper,
+    .tags-container,
+    .header-second,
+    #h-download,
+    #bm {
+        display: none;
+    }
+
+    .mobile-search{
+        display: flex;
+    }
+    main{
+        top: calc(56px + 30px);
+    }
+    .grid{
+        flex: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+        padding: 0px;
+    }
+    .video{
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 0px;
+        border-radius: 0px;
+    }
+}

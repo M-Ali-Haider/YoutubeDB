@@ -45,6 +45,9 @@ header{
 .hi:active{
     background-color: #ccc;
 }
+.mobile-search{
+    display: none;
+}
 .yt-searchbar{
     width: 90%;
     height: 40px;
