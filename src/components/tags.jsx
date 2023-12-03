@@ -17,16 +17,16 @@ const Tags=({isSidebarOpen})=>{
           tagEmpPrevElement.style.display = isFirstSlide ? 'none' : 'block';
         }
       };
-      const breakpoints = {
-        550: {
-          freemode: true,
-          touch: true,
-        },
-        551: {
-          freemode: false,
-          touch: false,
-        },
-      };
+    //   const breakpoints = {
+    //     550: {
+    //       freemode: true,
+    //       touch: true,
+    //     },
+    //     551: {
+    //       freemode: false,
+    //       touch: false,
+    //     },
+    //   };
       
     return(
         <>
@@ -37,7 +37,7 @@ const Tags=({isSidebarOpen})=>{
                     navigation={{ nextEl: '.tag-next', prevEl: '.tag-prev' }}
                     slidesPerView={15}
                     onSlideChange={handleSlideChange}
-                    breakpoints={breakpoints}
+                    freeMode={true}
                     className='tagsSwiper'
                 >
 
