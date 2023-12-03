@@ -2,6 +2,7 @@ import Header from './components/header'
 import Sidebar from './components/sidebar';
 import Tags from './components/tags.jsx';
 import Main from './components/mai.jsx';
+import Footer from './components/footer.jsx';
 import './App.css'
 import { useState } from 'react'
 function App() {
@@ -38,6 +39,7 @@ function App() {
     <Main
       isSidebarOpen={isSidebarOpen}
     />
+    <Footer/>
     </>
   )
 }

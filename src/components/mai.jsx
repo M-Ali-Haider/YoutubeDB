@@ -6,7 +6,9 @@ const Main=({isSidebarOpen})=>{
         <>
         <main>
             <div className={`tags-helper ${isSidebarOpen ? 'tags-helper-active' : ''}`}></div>
-            <Grid />
+            <Grid
+             isSidebarOpen={isSidebarOpen}
+            />
         </main>
         </>
     )

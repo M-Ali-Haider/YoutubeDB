@@ -66,24 +66,8 @@
         height: auto;
         width: 100%;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    footer{
+        display: flex;
+    }
+    
 }

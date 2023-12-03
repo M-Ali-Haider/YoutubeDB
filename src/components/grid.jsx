@@ -1,6 +1,7 @@
 import '../assets/styles/grid.css'
 import Video from './video';
-const Grid=()=>{
+import Shorts from './shorts';
+const Grid=({isSidebarOpen})=>{
     return(
         <>
             <div className="grid">
@@ -10,9 +11,18 @@ const Grid=()=>{
                 <Video />
                 <Video />
                 <Video />
-                <Video />
-                <Video />
-
+                {isSidebarOpen ? (
+                    <>
+                    </>
+                ): (
+                    <>
+                    <Video />
+                    <Video />
+                    </>
+                )}
+                <Shorts
+                    
+                />
             </div>
         </>
     )
