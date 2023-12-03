@@ -38,6 +38,7 @@ const Tags=({isSidebarOpen})=>{
                     slidesPerView={15}
                     onSlideChange={handleSlideChange}
                     freeMode={true}
+                    allowTouchMove={true}
                     className='tagsSwiper'
                 >
 
