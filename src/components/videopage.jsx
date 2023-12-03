@@ -3,6 +3,8 @@ import pfp from '../assets/images/pfp.jpeg'
 import dislike from '../assets/images/dislike.svg'
 import share from '../assets/images/share.svg'
 import download from '../assets/images/download.svg'
+import TagsSwiper from './tagsSwiper'
+import RV from './rv'
 
 const VideoPage=()=>{
     return(
@@ -54,10 +56,16 @@ const VideoPage=()=>{
                     </div>
                 </div>
                 <div className="videopage-second">
+                    <div className="videopage-second-tags">
+                        <TagsSwiper />
+                    </div>
                     <div className="rv-grid">
-                        <div className="rv-unit">
-                            
-                        </div>
+                        <RV />
+                        <RV />
+                        <RV />
+                        <RV />
+                        <RV />
+                        <RV />
                     </div>
                 </div>
             </div>
