@@ -1,3 +1,16 @@
+@media (max-width:1000px){
+    .videopage-helper{
+        width: 100%;
+        flex-direction: column;
+    }
+    .videopage-first{
+        flex: none;
+        width: 100%;
+    }
+    .videopage-second{
+        width: 100%;
+    }
+}
 @media (max-width:550px){
     .sidebar{
         width: 0px;

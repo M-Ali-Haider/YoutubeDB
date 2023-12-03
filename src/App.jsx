@@ -32,7 +32,7 @@ function App() {
       />
       <Routes>
         <Route path='/YoutubeDB' element={<Homepage isSidebarOpen={isSidebarOpen}/>}></Route>
-        <Route path='/video' element={<VideoPage/>}></Route>
+        <Route path='/video' element={<VideoPage />}></Route>
       </Routes>
     </Router>
     </>
