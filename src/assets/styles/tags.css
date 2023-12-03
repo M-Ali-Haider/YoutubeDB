@@ -10,7 +10,7 @@
 }
 .tags-helper{
     width: calc(72px + 20px);
-    transition: width 0.25s ease;
+    transition: width 0.5s ease;
 }
 .tags-helper-active{
     width: calc(226px + 20px);

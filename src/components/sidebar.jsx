@@ -8,7 +8,7 @@ const Sidebar=({isSidebarOpen})=>{
         <>
         <div className={`sidebar ${isSidebarOpen ? 'sidebar-extended' : ''}`}>
             {isSidebarOpen ? (
-                <div className="sidebar-open">
+                <div className={`sidebar-open`}>
                     <div className="sb-comp">
                         <div className="sb-unit sb-active">
                             <img src={home} alt="" />
@@ -82,7 +82,7 @@ const Sidebar=({isSidebarOpen})=>{
                 </div>
             </div>
             ) : (
-                <div className="sidebar-close">
+                <div className={`sidebar-close`}>
                     <div className="sb-close-unit">
                         <img src={home} alt="" />
                         <span>Home</span>
