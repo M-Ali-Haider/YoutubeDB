@@ -9,10 +9,17 @@
     .header-third{
         width: 60%;
     }
+    .tags-container{
+        top: 7%;
+    }
+    .tagsSwiper{
+        padding: 0px 7px;
+    }
+    .tag-next-div,
+    .tag-prev-div,
     .sidebar-close,
     .sidebar-open,
     .tags-helper,
-    .tags-container,
     .header-second,
     #h-download,
     #bm {
@@ -23,7 +30,7 @@
         display: flex;
     }
     main{
-        top: calc(56px + 30px);
+        top: calc(56px + 56px);
     }
     .grid{
         flex: none;
