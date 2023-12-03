@@ -1,11 +1,16 @@
 .grid{
-    padding-top: 24px;
     flex: 1;
-    padding-right: 15px;
-
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    justify-content: center;
+    padding: 24px 0px;
+}
+
+.grid a{
+    flex: 1;
+    max-width: 382px;
+    max-height: 354px;
+    min-width: 300px;
+    min-height: 300px;
+    margin: 6px;
 }

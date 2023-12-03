@@ -1,10 +1,9 @@
 import Header from './components/header'
-import Sidebar from './components/sidebar';
-import Tags from './components/tags.jsx';
-import Main from './components/mai.jsx';
-import Footer from './components/footer.jsx';
+import Homepage from './components/homepage.jsx';
+import VideoPage from './components/videopage.jsx';
 import './App.css'
 import { useState } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
   const [isInputFocused,setIsInputFocused]=useState(false);
   const [isSidebarOpen,setSidebarStatus]=useState(false);
@@ -24,22 +23,18 @@ function App() {
   }
   return (
     <>
-    <Header 
-      isInputFocused={isInputFocused}
-      handleInputFocus={handleInputFocus}
-      handleInputBlur={handleInputBlur}
-      handleSidebar={handleSidebar}
-    />
-    <Sidebar
-      isSidebarOpen={isSidebarOpen}
-    />
-    <Tags
-      isSidebarOpen={isSidebarOpen}
-    />
-    <Main
-      isSidebarOpen={isSidebarOpen}
-    />
-    <Footer/>
+    <Router>
+      <Header 
+        isInputFocused={isInputFocused}
+        handleInputFocus={handleInputFocus}
+        handleInputBlur={handleInputBlur}
+        handleSidebar={handleSidebar}
+      />
+      <Routes>
+        <Route path='/YoutubeDB' element={<Homepage isSidebarOpen={isSidebarOpen}/>}></Route>
+        <Route path='/video' element={<VideoPage/>}></Route>
+      </Routes>
+    </Router>
     </>
   )
 }

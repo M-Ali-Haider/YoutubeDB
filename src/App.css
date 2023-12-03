@@ -40,13 +40,22 @@
         align-items: center;
         gap: 0px;
         padding: 0px;
+        margin: 0px;
+    }
+    .grid a{
+        flex: none;
+        max-height: auto;
+        min-height: auto;
+        height: 350px;
+        max-width: 100%;
+        min-width: 100%;
+        margin: 0px;
     }
     .video{
         max-width: 100%;
         width: 100%;
         margin-bottom: 0px;
         flex: none;
-        height: 350px;
     }
     .thumbnail{
         border-radius: 0px;

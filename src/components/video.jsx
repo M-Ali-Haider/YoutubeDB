@@ -1,10 +1,11 @@
 import '../assets/styles/video.css'
 import thumbnail from '../assets/images/thumbnail.jpeg'
 import pfp from '../assets/images/pfp.jpeg'
-
+import { Link } from 'react-router-dom';
 const Video=()=>{
     return(
         <>
+        <Link to="/video">
             <div className="video">
                 <div className="thumbnail">
                     <div className="vid-tt">3:00</div>
@@ -31,6 +32,7 @@ const Video=()=>{
                     </div>
                 </div>
             </div>
+        </Link>
         </>
     )
 }

@@ -2,5 +2,4 @@ main{
     position: relative;
     top: calc(56px + 56px);
     display: flex;
-    z-index: -1;
 }
