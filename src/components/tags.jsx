@@ -35,7 +35,7 @@ const Tags=({isSidebarOpen})=>{
             <div className="tags-header">
                 <Swiper
                     navigation={{ nextEl: '.tag-next', prevEl: '.tag-prev' }}
-                    slidesPerView={10}
+                    slidesPerView={15}
                     onSlideChange={handleSlideChange}
                     breakpoints={breakpoints}
                     className='tagsSwiper'

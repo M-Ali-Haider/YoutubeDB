@@ -6,7 +6,10 @@ const Video=()=>{
     return(
         <>
             <div className="video">
-                <img className='thumbnail' src={thumbnail} alt="" />
+                <div className="thumbnail">
+                    <div className="vid-tt">3:00</div>
+                    <img src={thumbnail} alt="" />
+                </div>
                 <div className="vid-details">
                     <div className="vid-pfp">
                         <img src={pfp} alt="" />
