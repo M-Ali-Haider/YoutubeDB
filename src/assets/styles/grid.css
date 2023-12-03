@@ -1,9 +1,10 @@
 .grid{
     padding-top: 24px;
     flex: 1;
+    padding-right: 15px;
+
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
-    padding-right: 15px;
 }

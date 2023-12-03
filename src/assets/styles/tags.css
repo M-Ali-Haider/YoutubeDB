@@ -13,7 +13,7 @@
     transition: width 0.5s ease;
 }
 .tags-helper-active{
-    width: calc(226px + 20px);
+    width: calc(226px + 40px);
 }
 .tags-header{
     flex: 1;

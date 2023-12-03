@@ -1,17 +1,78 @@
 .video{
     flex: 1;
-    max-width: 382px;
-    min-width: 324px;
-    border: 1px solid black;
+    max-width: 380px;
+    min-width: 300px;
+    height: 300px;
     overflow: hidden;
-    border-radius: 25px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
 .thumbnail{
     width: 100%;
-    height: 182px;
+    height: 65%;
+    border-radius: 10px;
 }
 .vid-details{
     width: 100%;
-    height: 100px;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
 }
+.vid-pfp{
+    width: 38px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 7.5px;
+}
+.vid-pfp img{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center center;
+}
+.vid-info{
+    flex: 1;
+    height: 100%;
+    padding: 7.5px;
+    padding-right: 7.5px;
+    padding-bottom: 0px;
+}
+.vid-title{
+    width: 100%;
+    height: 50%;
+    font-weight: 500;
+    font-size: 16px;
+    overflow: hidden;
+}
+.vid-info-er{
+    height: 50%;
+    width: 100%;
+    font-size: 14px;
+    color: #606060;
+}
+.vid-author-div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.vid-verification{
+    fill: #606060;
+    height: 15px;
+    width: 15px;
+}
+.vid-stats-div{
+    display: flex;
+    align-items: center;
+    gap:4.5px;
+}
+.vid-dot{
+    height: 2px;
+    width: 2.5px;
+    background-color: #606060;
+    border-radius:1.5px;
+    overflow: hidden;
+}
+
