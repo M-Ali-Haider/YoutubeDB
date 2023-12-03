@@ -87,9 +87,9 @@
 .vid-tt{
     position: absolute;
     bottom: 5px;
-    right: 2.5px;
+    right: 5px;
     color: white;
-    background-color: black;
+    background-color: rgba(0,0,0,0.8);
     box-sizing: content-box;
     padding: 3px 4px;
     height: 12px;
