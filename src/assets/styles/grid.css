@@ -9,8 +9,8 @@
 .grid a{
     flex: 1;
     max-width: 382px;
-    max-height: 354px;
     min-width: 300px;
-    min-height: 300px;
+    max-height: 340px;
+    min-height: 250px;
     margin: 6px;
 }
