@@ -17,6 +17,17 @@ const Tags=({isSidebarOpen})=>{
           tagEmpPrevElement.style.display = isFirstSlide ? 'none' : 'block';
         }
       };
+      const breakpoints = {
+        550: {
+          freemode: true,
+          touch: true,
+        },
+        551: {
+          freemode: false,
+          touch: false,
+        },
+      };
+      
     return(
         <>
         <div className="tags-container">
@@ -26,8 +37,10 @@ const Tags=({isSidebarOpen})=>{
                     navigation={{ nextEl: '.tag-next', prevEl: '.tag-prev' }}
                     slidesPerView={10}
                     onSlideChange={handleSlideChange}
+                    breakpoints={breakpoints}
                     className='tagsSwiper'
                 >
+
                     <SwiperSlide className="tags-unit tags-unit-active">All</SwiperSlide>
                     <SwiperSlide className="tags-unit">Music</SwiperSlide>
                     <SwiperSlide className="tags-unit">Action Thrillers</SwiperSlide>

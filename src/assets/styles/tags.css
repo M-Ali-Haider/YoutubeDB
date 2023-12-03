@@ -111,6 +111,9 @@
     height: 100%;
     background: linear-gradient(to left,transparent 1%, #fff 99%);
 }
+.tags-unit-mobile{
+    display: none;
+}
 
 
 
