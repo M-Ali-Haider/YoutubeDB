@@ -16,7 +16,7 @@ const Video=({resetSidebar})=>{
                         <img src={pfp} alt="" />
                     </div>
                     <div className="vid-info">
-                        <div className="vid-title">CR and Siraiki Caught in Action (4K 1080pHD)</div>
+                        <div className="vid-title">Bruhmius.</div>
                         <div className="vid-info-er">
                             <div className="vid-author-div">
                                 <div className="vid-author">Omer Farooq</div>

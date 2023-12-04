@@ -13,7 +13,7 @@ const RV=()=>{
                     <img src={pfp} alt="" />
                 </div>
                 <div className="rv-rest">
-                    <div className="rv-title">CR and Siraiki Caught in Action (4k 1080pHD)</div>
+                    <div className="rv-title">Bruhmius.</div>
                     <div className="rv-author">Omer Farooq</div>
                     <div className="rv-stats">
                         <div className="rv-views">10M views</div>
