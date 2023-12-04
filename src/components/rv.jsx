@@ -13,7 +13,7 @@ const RV=()=>{
                     <img src={pfp} alt="" />
                 </div>
                 <div className="rv-rest">
-                    <div className="rv-title">Bruhmius.</div>
+                    <div className="rv-title">Learning React by creating YoutubeDB Replica</div>
                     <div className="rv-author">Omer Farooq</div>
                     <div className="rv-stats">
                         <div className="rv-views">10M views</div>

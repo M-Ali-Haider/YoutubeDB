@@ -19,7 +19,7 @@ const VideoPage=({isSidebarOpen})=>{
                 <div className="videopage-first">
                     <video className='mv' src=""></video>
                     <div className="mv-mobile-view-something">
-                        <h2 className='mv-title'>CR and Siraiki Caught in Action (4K 1080pHD)</h2>
+                        <h2 className='mv-title'>Learning React by creating YoutubeDB Replica</h2>
                         <div className="mv-buttons">
                             <div className="mv-buttons-first">
                                 <div className="mv-pfp"><img src={pfp} alt="" /></div>
