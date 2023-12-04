@@ -2,6 +2,7 @@
     .videopage-helper{
         width: 100%;
         flex-direction: column;
+        align-items: center;
     }
     .videopage-first{
         flex: none;
@@ -97,6 +98,73 @@
     }
     footer{
         display: flex;
+    }
+    .mv-mobile-view-something{  
+        width: 96%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .mv-buttons{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .mv-buttons-first{
+        flex: none;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 54px;
+    }
+    .mv-buttons-second{
+        flex:none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        height: 54px;
+        width: 100%;
+    }
+    .mv{
+        border-radius: 0px;
+    }
+
+
+
+
+    .rv-unit{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 300px;
+        gap: 10px;
+        width: 100%;
+    }
+    .rv-image-div{
+        height: 80%;
+        border-radius: 0px;
+        overflow: hidden;
+        width: 100%;
+    }
+    .rv-details{
+        width: 100%;
+        display: flex;
+    }
+    .rv-pfp{
+        display: flex;
+        justify-content: center;
+    }
+    .rv-author{
+        padding-top: 0px;
+    }
+    .rv-rest{
+        padding-bottom: 5px;
     }
     
 }

@@ -17,9 +17,16 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
-
+.mv-mobile-view-something{  
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .mv{
     width: 100%;
     background-image: url('../images/thumbnail.jpeg');
@@ -35,17 +42,14 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    height: 54px;
 }
 .mv-buttons-first{
-    height: 100%;
     flex: 1;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 .mv-buttons-second{
-    height: 100%;
     flex:1;
     display: flex;
     align-items: center;

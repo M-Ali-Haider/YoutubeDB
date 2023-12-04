@@ -31,3 +31,12 @@
     font-size: 12px;
     padding-top: 5px;
 }
+.rv-pfp{
+    display: none;
+    width: 12.5%;
+}
+.rv-pfp img{
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+}
