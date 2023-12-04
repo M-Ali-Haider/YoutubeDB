@@ -20,9 +20,6 @@ const Grid=({isSidebarOpen,resetSidebar})=>{
                     <Video resetSidebar={resetSidebar}/>
                     </>
                 )}
-                <Shorts
-                    
-                />
             </div>
         </>
     )
