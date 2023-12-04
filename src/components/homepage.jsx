@@ -2,7 +2,7 @@ import Sidebar from "./sidebar";
 import Tags from "./tags";
 import Main from "./mai";
 import Footer from "./footer";
-const Homepage=({isSidebarOpen})=>{
+const Homepage=({isSidebarOpen,resetSidebar})=>{
     return(
         <>
         <Sidebar
@@ -13,6 +13,7 @@ const Homepage=({isSidebarOpen})=>{
         />
         <Main
             isSidebarOpen={isSidebarOpen}
+            resetSidebar={resetSidebar}
         />
         <Footer/>
         </>

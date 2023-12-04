@@ -21,6 +21,10 @@ function App() {
       setSidebarStatus(true);
     }
   }
+  const resetSidebar=()=>{
+    setSidebarStatus(false);
+  }
+  console.log(isSidebarOpen);
   return (
     <>
     <Router>
@@ -31,8 +35,8 @@ function App() {
         handleSidebar={handleSidebar}
       />
       <Routes>
-        <Route path='/YoutubeDB' element={<Homepage isSidebarOpen={isSidebarOpen}/>}></Route>
-        <Route path='/video' element={<VideoPage />}></Route>
+        <Route path='/YoutubeDB' element={<Homepage isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}></Route>
+        <Route path='/video' element={<VideoPage isSidebarOpen={isSidebarOpen}/>}></Route>
       </Routes>
     </Router>
     </>

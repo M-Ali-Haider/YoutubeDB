@@ -5,10 +5,15 @@ import share from '../assets/images/share.svg'
 import download from '../assets/images/download.svg'
 import TagsSwiper from './tagsSwiper'
 import RV from './rv'
+import SidebarOpen from './sidebaropen'
 
-const VideoPage=()=>{
+const VideoPage=({isSidebarOpen})=>{
+
     return(
         <>
+        <div className={`slideSidebar ${isSidebarOpen ? 'slideSidebarOpen' : ''}`}>
+            <SidebarOpen />
+        </div>
         <div className="videopage">
             <div className="videopage-helper">
                 <div className="videopage-first">

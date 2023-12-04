@@ -2,10 +2,10 @@ import '../assets/styles/video.css'
 import thumbnail from '../assets/images/thumbnail.jpeg'
 import pfp from '../assets/images/pfp.jpeg'
 import { Link } from 'react-router-dom';
-const Video=()=>{
+const Video=({resetSidebar})=>{
     return(
         <>
-        <Link to="/video">
+        <Link onClick={resetSidebar} to="/video">
             <div className="video">
                 <div className="thumbnail">
                     <div className="vid-tt">3:00</div>
