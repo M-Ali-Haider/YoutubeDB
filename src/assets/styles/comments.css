@@ -1,0 +1,126 @@
+.comment-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.comments-analytics{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.comments-sort{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.comments-sort span{
+    font-weight: 500;
+    font-size: 14px;
+}
+.comments-sort img{
+    width:24px;
+    height: 24px;
+}
+.comments-total{
+    font-weight: 700;
+}
+.comment-pfp img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-position: center center;
+    object-fit: cover;
+}
+.display-comments{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.comment-unit{
+    display: flex;
+    gap: 20px;
+}
+.cu-helper{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.cu-first{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.cu-third{
+    display: flex;
+    align-items: center;
+    height: 32px;
+}
+.cu-third img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+.cu-like{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: -17.5%;
+}
+.cu-dislike{
+    display: flex;
+    align-items: center;
+}
+.cu-total-likes{
+    margin-left: -20px;
+    font-size: 14px;
+
+}
+.cu-dislike img{
+    transform:rotate(180deg);
+}
+.cu-reply{
+    font-weight: 500;
+    font-size: 13px;
+}
+.comment-id{
+    font-size: 13px;
+    font-weight: 500;
+}
+.comment-time-elapsed{
+    font-size: 12px;
+    color: #606060;
+}
+.cu-second{
+    font-size: 14px;
+}
+.cu-third-first{
+    display: flex;
+    align-items: center;
+}
+.comments-add-container{
+    display: flex;
+    gap: 20px;
+}
+.add-a-comment{
+    flex: 1;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.cu-reply{
+    width: 55px;
+    height: 100%;
+    border-radius: 25px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+.cu-reply:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+.cu-reply:active{
+    background-color: rgba(0,0,0,0.2);
+}

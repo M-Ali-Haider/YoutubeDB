@@ -6,6 +6,7 @@ import download from '../assets/images/download.svg'
 import TagsSwiper from './tagsSwiper'
 import RV from './rv'
 import SidebarOpen from './sidebaropen'
+import CommentSection from './commentsec'
 
 const VideoPage=({isSidebarOpen})=>{
 
@@ -60,8 +61,10 @@ const VideoPage=({isSidebarOpen})=>{
                             </div>
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est impedit sint beatae maiores voluptate id sit? Esse assumenda perferendis repellendus itaque, sunt illo quisquam similique doloribus cum atque aperiam deleniti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus blanditiis iusto, eum accusantium odit possimus minus commodi repellat alias ipsa. Officia sapiente accusantium sed repellendus, incidunt laudantium ducimus dignissimos! Unde!</p>
                         </div>
+                        <div className="mv-comments">
+                            <CommentSection />
+                        </div>
                     </div>
-                    
                 </div>
                 <div className="videopage-second">
                     <div className="videopage-second-tags">
