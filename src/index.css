@@ -34,6 +34,14 @@ body {
 #root{
   width: 100%;
 }
+.shadow-on-image{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.69) 100%);
+}
 @media (max-width:550px){
   body{
     display: block;

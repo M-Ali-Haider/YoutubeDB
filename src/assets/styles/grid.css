@@ -1,5 +1,11 @@
-.grid{
+.grid-container{
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.grid{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -13,4 +19,47 @@
     max-height: 340px;
     min-height: 250px;
     margin: 6px;
+}
+
+
+.grid-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.shorts-mobile-div{
+    flex: 1;
+    height: 350px;
+}
+.shorts-image-mobile{
+    height: 100%;
+    position: relative;
+}
+.shorts-image-mobile img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    object-position: center center ;
+    border-radius: 15px;
+}
+.shorts-detail-mobile{
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 3;
+}
+
+
+
+.grid-mobile{
+    display: none;
+}
+.grid-mobile-short-row{
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }

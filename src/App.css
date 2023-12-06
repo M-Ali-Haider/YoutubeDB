@@ -1,3 +1,11 @@
+@media (max-width:1035px){
+    .gridshorts{
+        display: none;
+    }
+    .grid-mobile{
+        display: flex;
+    }
+}
 @media (max-width:1000px){
     .videopage-helper{
         width: 100%;
@@ -161,5 +169,10 @@
     }
     .rv-rest{
         padding-bottom: 5px;
+    }
+
+    .grid-mobile-short-row{
+        width: 98%;
+        gap: 8px;
     }
 }

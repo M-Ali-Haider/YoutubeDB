@@ -2,4 +2,6 @@ main{
     position: relative;
     top: calc(56px + 56px);
     display: flex;
+    overflow: hidden;
+    padding-bottom: 500px;
 }

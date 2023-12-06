@@ -53,7 +53,7 @@
     position: relative;
     margin: 0!important;
 }
-.swiper-wrapper{
+.tagsSwiper .swiper-wrapper{
     align-items: center;
     gap: 7.5px;
 }
