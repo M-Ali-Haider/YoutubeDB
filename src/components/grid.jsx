@@ -12,6 +12,13 @@ const Grid=({isSidebarOpen,resetSidebar})=>{
                 <GridShorts
                     isSidebarOpen={isSidebarOpen}
                 />
+                <GridVideo
+                    isSidebarOpen={isSidebarOpen}
+                    resetSidebar={resetSidebar}
+                />
+                <GridShorts
+                    isSidebarOpen={isSidebarOpen}
+                />
             </div>
             
         </>
