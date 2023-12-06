@@ -27,6 +27,7 @@
     flex-direction: column;
     gap: 10px;
 }
+
 .mv{
     width: 100%;
     background-image: url('../images/thumbnail.jpeg');
@@ -45,6 +46,11 @@
 }
 .mv-buttons-first{
     flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.mv-buttons-first-helper{
     display: flex;
     align-items: center;
     gap: 8px;
@@ -93,6 +99,11 @@
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
+    background-color: #0f0f0f;
+    margin-left: 15px;
+}
+.mv-subscribe-button:hover{
+    background-color: rgba(0,0,0,0.85);
 }
 .mv-button{
     height: 36px;
@@ -107,6 +118,25 @@
 .rotate-like{
     transform: rotate(180deg);
 }
+.mv-dots{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+.mv-dots:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+.mv-dots:active{
+    background-color: rgba(0,0,0,0.15);
+}
+
+
+
 .mv-like{
     display: flex;
     align-items: center;

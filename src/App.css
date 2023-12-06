@@ -20,6 +20,52 @@
         width: 100%;
     }
 }
+@media (max-width:700px){
+    .mv-mobile-view-something{  
+        width: 96%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .mv-buttons-first{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0px;
+    }
+    .mv-buttons{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .mv-buttons-first{
+        flex: none;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 54px;
+    }
+    .mv-buttons-second{
+        flex:none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        height: 54px;
+        width: 100%;
+    }
+    .mv{
+        border-radius: 0px;
+    }
+    .videopage{
+        top: 60px;
+    }
+}
 @media (max-width:550px){
     .sidebar{
         width: 0px;
@@ -89,6 +135,7 @@
         display: flex;
         justify-content: space-between;
     }
+    
     .vid-info{
         flex: 1;
         height:auto;
@@ -107,40 +154,7 @@
     footer{
         display: flex;
     }
-    .mv-mobile-view-something{  
-        width: 96%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    .mv-buttons{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .mv-buttons-first{
-        flex: none;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        height: 54px;
-    }
-    .mv-buttons-second{
-        flex:none;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-        height: 54px;
-        width: 100%;
-    }
-    .mv{
-        border-radius: 0px;
-    }
+    
     .rv-unit{
         display: flex;
         flex-direction: column;

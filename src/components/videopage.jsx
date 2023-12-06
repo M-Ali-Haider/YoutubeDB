@@ -2,14 +2,15 @@ import '../assets/styles/videopage.css'
 import pfp from '../assets/images/pfp.jpeg'
 import dislike from '../assets/images/dislike.svg'
 import share from '../assets/images/share.svg'
-import download from '../assets/images/download.svg'
 import TagsSwiper from './tagsSwiper'
 import RV from './rv'
 import SidebarOpen from './sidebaropen'
 import CommentSection from './commentsec'
+import threedots from '../assets/images/threedots.svg'
+import download from '../assets/images/download.svg'
 
 const VideoPage=({isSidebarOpen})=>{
-
+    const tagsNumber=4.8;
     return(
         <>
         <div className={`slideSidebar ${isSidebarOpen ? 'slideSidebarOpen' : ''}`}>
@@ -23,10 +24,12 @@ const VideoPage=({isSidebarOpen})=>{
                         <h2 className='mv-title'>Learning React by creating YoutubeDB Replica</h2>
                         <div className="mv-buttons">
                             <div className="mv-buttons-first">
-                                <div className="mv-pfp"><img src={pfp} alt="" /></div>
-                                <div className="mv-channel">
-                                    <div className="mv-channel-name">Omer Farooq</div>
-                                    <div className="mv-subs">8.72M subscribers</div>
+                                <div className='mv-buttons-first-helper'>
+                                    <div className="mv-pfp"><img src={pfp} alt="" /></div>
+                                    <div className="mv-channel">
+                                        <div className="mv-channel-name">Omer Farooq</div>
+                                        <div className="mv-subs">8.72M subscribers</div>
+                                    </div>
                                 </div>
                                 <div className="mv-subscribe-button">Subscribe</div>
                             </div>
@@ -52,6 +55,11 @@ const VideoPage=({isSidebarOpen})=>{
                                         <div>Download</div>
                                     </div>
                                 </div>
+                                <div className="mv-button">
+                                    <div className="mv-dots">
+                                        <img src={threedots} alt="" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="mv-desc">
@@ -68,7 +76,7 @@ const VideoPage=({isSidebarOpen})=>{
                 </div>
                 <div className="videopage-second">
                     <div className="videopage-second-tags">
-                        <TagsSwiper />
+                        <TagsSwiper tagsNumber={tagsNumber}/>
                     </div>
                     <div className="rv-grid">
                         <RV />

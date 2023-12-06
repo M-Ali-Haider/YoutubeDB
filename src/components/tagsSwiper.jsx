@@ -8,7 +8,7 @@ import {Navigation} from 'swiper/modules'
 import SwiperCore from 'swiper/core'
 SwiperCore.use([Navigation])
 
-const TagsSwiper=()=>{
+const TagsSwiper=({tagsNumber})=>{
 
     const handleSlideChange = (swiper) => {
         const currentIndex = swiper.activeIndex;
@@ -22,7 +22,7 @@ const TagsSwiper=()=>{
         <>
         <Swiper
             navigation={{ nextEl: '.tag-next', prevEl: '.tag-prev' }}
-            slidesPerView={15}
+            slidesPerView={tagsNumber}
             onSlideChange={handleSlideChange}
             freeMode={true}
             allowTouchMove={true}

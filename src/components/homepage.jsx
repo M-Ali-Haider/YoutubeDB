@@ -3,6 +3,7 @@ import Tags from "./tags";
 import Main from "./mai";
 import Footer from "./footer";
 const Homepage=({isSidebarOpen,resetSidebar})=>{
+    const tagsNumber= isSidebarOpen ? 13 : 15
     return(
         <>
         <Sidebar
@@ -10,6 +11,7 @@ const Homepage=({isSidebarOpen,resetSidebar})=>{
         />
         <Tags
             isSidebarOpen={isSidebarOpen}
+            tagsNumber={tagsNumber}
         />
         <Main
             isSidebarOpen={isSidebarOpen}
