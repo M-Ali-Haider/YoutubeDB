@@ -16,7 +16,7 @@ const Video=({resetSidebar})=>{
                         <img src={pfp} alt="" />
                     </div>
                     <div className="vid-info">
-                        <div className="vid-title">Learning React by creating YoutubeDB Replica</div>
+                        <div className="vid-title">Bruhmius</div>
                         <div className="vid-info-er">
                             <div className="vid-author-div">
                                 <div className="vid-author">Omer Farooq</div>

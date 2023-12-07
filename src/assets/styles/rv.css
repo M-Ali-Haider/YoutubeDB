@@ -1,10 +1,10 @@
 .rv-unit{
     display: flex;
     align-items: center;
-    justify-content: space-between;
     height: 94px;
     font-size: 14px;
-    gap: 5px;
+    gap: 8px;
+    width: 100%;
 }
 .rv-image-div{
     width: 168px;

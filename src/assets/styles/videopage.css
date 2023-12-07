@@ -134,9 +134,6 @@
 .mv-dots:active{
     background-color: rgba(0,0,0,0.15);
 }
-
-
-
 .mv-like{
     display: flex;
     align-items: center;
@@ -185,7 +182,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 .rv-grid{
     width: 100%;
@@ -194,6 +190,8 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
+    margin-top: 15px;
+    margin-bottom: 24px;
 }
 .slideSidebar{
     position: fixed;
@@ -211,8 +209,20 @@
 .slideSidebarOpen{
     transform: translateX(0);
 }
-
-
 .mv-comments{
     width: 100%;
+}
+.shorts-vs-grid{
+    width: 100%;
+    height: 380px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding-bottom: 24px;
+}
+.shorts-vs-grid-heading{
+    font-weight: 700;
+    font-size: 21px;
+    padding: 10px 0px;
+}
+.vs-shorts-box{
+    border-top: 1px solid rgba(0,0,0,0.2);
 }

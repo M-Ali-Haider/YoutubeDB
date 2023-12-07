@@ -4,10 +4,11 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    height: 495px;
 }
 .shorts-swiper{
     width:98%;
-    height: 495px;
+    height: 100%;
     position: relative;
 }
 .shorts-slide{

@@ -6,6 +6,8 @@ import TagsSwiper from './tagsSwiper'
 import RV from './rv'
 import SidebarOpen from './sidebaropen'
 import CommentSection from './commentsec'
+import ShortsVP from './shortsVP'
+import Playlist from './playlist'
 import threedots from '../assets/images/threedots.svg'
 import download from '../assets/images/download.svg'
 
@@ -75,6 +77,7 @@ const VideoPage=({isSidebarOpen})=>{
                     </div>
                 </div>
                 <div className="videopage-second">
+                    <Playlist />
                     <div className="videopage-second-tags">
                         <TagsSwiper tagsNumber={tagsNumber}/>
                     </div>
@@ -85,6 +88,12 @@ const VideoPage=({isSidebarOpen})=>{
                         <RV />
                         <RV />
                         <RV />
+                    </div>
+                    <div className="vs-shorts-box">
+                        <h3 className='shorts-vs-grid-heading'>Shorts</h3>
+                        <div className="shorts-vs-grid">
+                            <ShortsVP/>
+                        </div>
                     </div>
                 </div>
             </div>
