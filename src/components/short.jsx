@@ -1,7 +1,10 @@
 import pfp from '../assets/images/pfp.jpeg';
+import { Link } from 'react-router-dom';
+
 const Short=()=>{
     return(
         <>
+        <Link to="/short">
             <div className="shorts-slide">
                 <div className="shorts-image">
                     <img src={pfp} alt="" />
@@ -11,6 +14,7 @@ const Short=()=>{
                     <div className="shorts-views">100M views</div>
                 </div>
             </div>
+        </Link>
         </>
     )
 }

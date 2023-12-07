@@ -29,8 +29,6 @@
     flex: 1;
     overflow: scroll;
 }
-
-
 .playlist-unit{
     display: flex;
     align-items: center;

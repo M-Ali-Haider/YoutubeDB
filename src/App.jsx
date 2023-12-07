@@ -1,6 +1,7 @@
 import Header from './components/header'
 import Homepage from './components/homepage.jsx';
 import VideoPage from './components/videopage.jsx';
+import ShortsPage from './components/shortsPage.jsx';
 import './App.css'
 import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -37,6 +38,7 @@ function App() {
       <Routes>
         <Route path='/YoutubeDB' element={<Homepage isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}></Route>
         <Route path='/video' element={<VideoPage isSidebarOpen={isSidebarOpen}/>}></Route>
+        <Route path='/short' element={<ShortsPage/>}></Route>
       </Routes>
     </Router>
     </>
