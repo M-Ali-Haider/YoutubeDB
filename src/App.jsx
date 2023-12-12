@@ -7,7 +7,9 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
   const [isInputFocused,setIsInputFocused]=useState(false);
+
   const [isSidebarOpen,setSidebarStatus]=useState(false);
+
   const handleInputFocus=()=>{
     setIsInputFocused(true);
   }
