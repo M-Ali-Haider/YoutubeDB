@@ -1,4 +1,3 @@
-import '../../assets/styles/tags.css'
 import next from '../../assets/images/next.svg'
 import prev from '../../assets/images/prev.svg'
 import {Swiper,SwiperSlide} from 'swiper/react'

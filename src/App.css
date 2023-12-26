@@ -67,6 +67,7 @@
     }
 }
 @media (max-width:550px){
+    
     .sidebar{
         width: 0px;
         padding-left: 0px;
@@ -80,8 +81,11 @@
     .tags-container{
         top: 7%;
     }
-    .tagsSwiper{
-        padding: 0px 7px;
+    .tags-header-mobile{
+        display: flex;
+    }
+    .tags-header{
+        display: none;
     }
     .tag-next-div,
     .tag-prev-div,
