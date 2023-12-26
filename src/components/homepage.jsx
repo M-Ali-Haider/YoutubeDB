@@ -1,5 +1,5 @@
 import Sidebar from "./sidebar/sidebar";
-import Tags from "./tags";
+import Tags from "./tags/tags";
 import Main from "./mai";
 import Footer from "./footer";
 const Homepage=({isSidebarOpen,resetSidebar})=>{

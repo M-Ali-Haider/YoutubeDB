@@ -1,4 +1,4 @@
-import '../assets/styles/grid.css'
+import '../../assets/styles/grid.css'
 import GridShorts from './gridShorts'
 import GridVideo from './gridVideo';
 const Grid=({isSidebarOpen,resetSidebar})=>{

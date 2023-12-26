@@ -1,4 +1,4 @@
-import '../assets/styles/playlist.css'
+import '../../assets/styles/playlist.css'
 import PlaylistUnit from './playlistUnit'
 const Playlist=()=>{
     return(

@@ -1,6 +1,6 @@
 import '../assets/styles/tags.css'
 import '../assets/styles/main.css'
-import Grid from './grid'
+import Grid from './grid/grid'
 const Main=({isSidebarOpen,resetSidebar})=>{
     return(
         <>
