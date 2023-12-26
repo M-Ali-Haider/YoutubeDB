@@ -1,0 +1,26 @@
+1.   Make a Folder named 'Backend'
+
+2.   Make a package.json files by using command 
+        'npm init -y'
+
+3.   Install express, nodemon and mongoose  
+        'npm i express nodemon mongoose'
+
+
+4.  Add ' "type": "module", ' after the fifth line in 'package.json'
+
+5.  Replace 8th line in scripts section with "test":"nodemon index.js" in 'package.json'
+
+6.  Write 'npm start' in terminal to start nodemon
+
+7.  Make a index javascript file called 'index.js'
+
+8.  For Safety we use environment variables called dotenv so install that by using command
+    'npm i dotenv'
+
+9.  Put MongoDB connection string in a variable and in a file called '.env'
+
+10. Used npm i bcryptjs to hide password
+
+11. npm i jsonwebtoken
+
