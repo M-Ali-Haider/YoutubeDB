@@ -1,12 +1,12 @@
-import next from '../assets/images/next.svg'
-import prev from '../assets/images/prev.svg'
+import next from '../../assets/images/next.svg'
+import prev from '../../assets/images/prev.svg'
+import '../../assets/styles/gridShorts.css'
 import {Swiper,SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation} from 'swiper/modules'
 import SwiperCore from 'swiper/core'
 SwiperCore.use([Navigation])
-import '../assets/styles/gridShorts.css'
 import Short from "./short";
 const ShortsVP=()=>{
     return(

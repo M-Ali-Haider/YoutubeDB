@@ -1,4 +1,4 @@
-import '../assets/styles/shortspage.css'
+import '../../assets/styles/shortspage.css'
 const ShortsPage=()=>{
 return(
     <>

@@ -1,7 +1,7 @@
 import Header from './components/header'
 import Homepage from './components/homepage.jsx';
 import VideoPage from './components/videopage.jsx';
-import ShortsPage from './components/shortsPage.jsx';
+import ShortsPage from './components/shorts/shortsPage.jsx';
 import './App.css'
 import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';

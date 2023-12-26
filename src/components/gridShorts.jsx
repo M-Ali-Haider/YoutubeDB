@@ -7,8 +7,8 @@ import {Navigation} from 'swiper/modules'
 import SwiperCore from 'swiper/core'
 SwiperCore.use([Navigation])
 import '../assets/styles/gridShorts.css'
-import Short from './short'
-import ShortMobile from './shortMobile'
+import Short from './shorts/short'
+import ShortMobile from './shorts/shortMobile'
 
 const GridShorts=({isSidebarOpen})=>{
     return(

@@ -1,4 +1,4 @@
-import pfp from '../assets/images/pfp.jpeg';
+import pfp from '../../assets/images/pfp.jpeg';
 import { Link } from 'react-router-dom';
 
 const Short=()=>{
