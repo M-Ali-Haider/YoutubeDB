@@ -1,5 +1,5 @@
-import like from '../assets/images/like.svg'
-import pfp from '../assets/images/pfp.jpeg'
+import like from '../../assets/images/like.svg'
+import pfp from '../../assets/images/pfp.jpeg'
 const Comment=()=>{
     return(
         <>

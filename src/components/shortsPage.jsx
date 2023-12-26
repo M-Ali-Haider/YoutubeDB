@@ -2,7 +2,7 @@ import '../assets/styles/shortspage.css'
 const ShortsPage=()=>{
 return(
     <>
-        mlao
+        This is the shorts page
     </>
 )
 

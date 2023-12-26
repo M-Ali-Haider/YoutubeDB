@@ -1,6 +1,6 @@
-import '../assets/styles/comments.css'
-import pfp from '../assets/images/pfp.jpeg'
-import sortby from '../assets/images/sortby.svg'
+import '../../assets/styles/comments.css'
+import pfp from '../../assets/images/pfp.jpeg'
+import sortby from '../../assets/images/sortby.svg'
 import Comment from './comment'
 const CommentSection=()=>{
     return(
