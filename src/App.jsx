@@ -38,8 +38,8 @@ function App() {
       />
       <Routes>
         <Route path='/YoutubeDB' element={<Homepage isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}></Route>
-        <Route path='/video' element={<VideoPage isSidebarOpen={isSidebarOpen}/>}></Route>
-        <Route path='/short' element={<ShortsPage/>}></Route>
+        <Route path='/YoutubeDB/video' element={<VideoPage isSidebarOpen={isSidebarOpen}/>}></Route>
+        <Route path='/YoutubeDB/short' element={<ShortsPage/>}></Route>
       </Routes>
     </Router>
     </>
