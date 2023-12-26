@@ -27,7 +27,6 @@ function App() {
   const resetSidebar=()=>{
     setSidebarStatus(false);
   }
-  console.log(isSidebarOpen);
   return (
     <>
     <Router>

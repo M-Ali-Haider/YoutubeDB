@@ -1,6 +1,5 @@
 import Video from './video';
 const GridVideo=({isSidebarOpen,resetSidebar})=>{
-    console.log(resetSidebar);
     return(
         <>
         <div className="grid">

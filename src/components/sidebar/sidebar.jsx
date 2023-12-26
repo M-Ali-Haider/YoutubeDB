@@ -1,14 +1,14 @@
-import '../assets/styles/sidebar.css'
-import shorts from '../assets/images/shorts.svg'
-import home from '../assets/images/home.svg'
-import subs from '../assets/images/subs.svg'
-import you from '../assets/images/you.svg'
-import browse from '../assets/images/browse.svg'
+import '../../assets/styles/sidebar.css'
+import shorts from '../../assets/images/shorts.svg'
+import home from '../../assets/images/home.svg'
+import subs from '../../assets/images/subs.svg'
+import you from '../../assets/images/you.svg'
 import SidebarOpen from './sidebaropen'
 const Sidebar=({isSidebarOpen})=>{
     return(
         <>
         <div className={`sidebar ${isSidebarOpen ? 'sidebar-extended' : ''}`}>
+            
             {isSidebarOpen ? (
                 <SidebarOpen />
             ) : (

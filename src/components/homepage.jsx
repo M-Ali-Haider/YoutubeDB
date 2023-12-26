@@ -1,4 +1,4 @@
-import Sidebar from "./sidebar";
+import Sidebar from "./sidebar/sidebar";
 import Tags from "./tags";
 import Main from "./mai";
 import Footer from "./footer";
