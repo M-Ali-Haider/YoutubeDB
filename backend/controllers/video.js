@@ -103,26 +103,24 @@ export const sub = async (req, res, next) => {
   }
 };
 
-
 export const getByTag = async (req, res, next) => {
-    const tags = req.query.tags.split(",");
-    console.log(tags)
-    try {
-      const videos = await Video.find({tags:{$in:tags}}).limit(20);
-      res.status(200).json(videos);
-    } catch (err) {
-      next(err);
-    }
-  };
+  const tags = req.query.tags.split(",");
+  try {
+    const videos = await Video.find({ tags: { $in: tags } }).limit(20);
+    res.status(200).json(videos);
+  } catch (err) {
+    next(err);
+  }
+};
 
-  
 export const getBySearch = async (req, res, next) => {
-    const query = req.query.q
-    try {
-      const videos = await Video.find({title:{$regex:query, $options:"i"}}).limit(40);
-      res.status(200).json(videos);
-    } catch (err) {
-      next(err);
-    }
-  };
-  
+  const query = req.query.q;
+  try {
+    const videos = await Video.find({
+      title: { $regex: query, $options: "i" },
+    }).limit(40);
+    res.status(200).json(videos);
+  } catch (err) {
+    next(err);
+  }
+};

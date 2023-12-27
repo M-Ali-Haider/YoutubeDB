@@ -17,11 +17,12 @@ const ShortsVP=()=>{
             spaceBetween={10}
             className='shorts-swiper'
         >
-            {Array.from({length: 8}).map((_,index)=>(
-                <SwiperSlide>
+            {Array.from({length: 8}).map((_, index) => (
+                <SwiperSlide key={index}>
                     <Short />
                 </SwiperSlide>
             ))}
+            
             <div className="short-next">
                 <img src={next} alt="" />
             </div>

@@ -24,3 +24,7 @@
 
 11. npm i jsonwebtoken
 
+12.  frontend folder npm i axios
+
+13.  frontend folder npm i timeago.js
+
