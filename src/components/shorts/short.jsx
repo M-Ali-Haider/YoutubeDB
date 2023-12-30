@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Short=()=>{
     return(
         <>
-        <Link to="/YoutubeDB/short">
+        <Link to="/short">
             <div className="shorts-slide">
                 <div className="shorts-image">
                     <img src={pfp} alt="" />

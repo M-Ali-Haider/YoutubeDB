@@ -2,11 +2,12 @@ import Sidebar from "./sidebar/sidebar";
 import Tags from "./tags/tags";
 import Main from "./mai";
 import Footer from "./footer";
-const Homepage=({isSidebarOpen,resetSidebar})=>{
+const Homepage=({type,isSidebarOpen,resetSidebar,isSignedIn})=>{
     const tagsNumber= isSidebarOpen ? 13 : 15
     return(
         <>
         <Sidebar
+            isSignedIn={isSignedIn}
             isSidebarOpen={isSidebarOpen}
         />
         <Tags
@@ -14,6 +15,7 @@ const Homepage=({isSidebarOpen,resetSidebar})=>{
             tagsNumber={tagsNumber}
         />
         <Main
+            type={type}
             isSidebarOpen={isSidebarOpen}
             resetSidebar={resetSidebar}
         />

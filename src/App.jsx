@@ -4,11 +4,12 @@ import VideoPage from './components/videopage.jsx';
 import ShortsPage from './components/shorts/shortsPage.jsx';
 import './App.css'
 import { useState } from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 function App() {
-  const [isInputFocused,setIsInputFocused]=useState(false);
 
+  const [isInputFocused,setIsInputFocused]=useState(false);
   const [isSidebarOpen,setSidebarStatus]=useState(false);
+  const[isSignedIn,setSignInStatus]=useState(false);
 
   const handleInputFocus=()=>{
     setIsInputFocused(true);
@@ -29,19 +30,22 @@ function App() {
   }
   return (
     <>
-    <Router>
       <Header 
         isInputFocused={isInputFocused}
         handleInputFocus={handleInputFocus}
         handleInputBlur={handleInputBlur}
         handleSidebar={handleSidebar}
+        isSignedIn={isSignedIn}
       />
       <Routes>
-        <Route path='/YoutubeDB' element={<Homepage isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}></Route>
-        <Route path='/YoutubeDB/video' element={<VideoPage isSidebarOpen={isSidebarOpen}/>}></Route>
-        <Route path='/YoutubeDB/short' element={<ShortsPage/>}></Route>
+
+        <Route path='/' element={<Homepage type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar} isSignedIn={isSignedIn}/>}></Route>
+        <Route path='/trends' element={<Homepage type="trend" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar} isSignedIn={isSignedIn}/>}></Route>
+        <Route path='/subscriptions' element={<Homepage type="sub" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar} isSignedIn={isSignedIn}/>}></Route>
+
+        <Route path='/video' element={<VideoPage isSidebarOpen={isSidebarOpen} isSignedIn={isSignedIn}/>}></Route>
+        <Route path='/short' element={<ShortsPage/>}></Route>
       </Routes>
-    </Router>
     </>
   )
 }
