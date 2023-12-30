@@ -30,7 +30,7 @@ const Video=({resetSidebar,video})=>{
 
     return(
         <>
-        <Link onClick={resetSidebar} to="/video">
+        <Link onClick={resetSidebar} to="/YoutubeDB/video">
             <div className="video">
                 <div className="thumbnail">
                     <div className="vid-tt">3:00</div>

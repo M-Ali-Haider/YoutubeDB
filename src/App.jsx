@@ -38,13 +38,11 @@ function App() {
         isSignedIn={isSignedIn}
       />
       <Routes>
-
-        <Route path='/' element={<Homepage type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar} isSignedIn={isSignedIn}/>}></Route>
-        <Route path='/trends' element={<Homepage type="trend" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar} isSignedIn={isSignedIn}/>}></Route>
-        <Route path='/subscriptions' element={<Homepage type="sub" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar} isSignedIn={isSignedIn}/>}></Route>
-
-        <Route path='/video' element={<VideoPage isSidebarOpen={isSidebarOpen} isSignedIn={isSignedIn}/>}></Route>
-        <Route path='/short' element={<ShortsPage/>}></Route>
+        <Route path='/YoutubeDB' element={<Homepage type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar} isSignedIn={isSignedIn}/>}></Route>
+        <Route path='/YoutubeDB/trends' element={<Homepage type="trend" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar} isSignedIn={isSignedIn}/>}></Route>
+        <Route path='/YoutubeDB/subscriptions' element={<Homepage type="sub" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar} isSignedIn={isSignedIn}/>}></Route>
+        <Route path='/YoutubeDB/video' element={<VideoPage isSidebarOpen={isSidebarOpen} isSignedIn={isSignedIn}/>}></Route>
+        <Route path='/YoutubeDB/short' element={<ShortsPage/>}></Route>
       </Routes>
     </>
   )
