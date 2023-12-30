@@ -5,13 +5,13 @@ import subs from '../../assets/images/subs.svg'
 import you from '../../assets/images/you.svg'
 import SidebarOpen from './sidebaropen'
 import SidebarClose from './sidebarclose'
-const Sidebar=({isSignedIn,isSidebarOpen})=>{
+const Sidebar=({isSidebarOpen})=>{
     return(
         <>
         <div className={`sidebar ${isSidebarOpen ? 'sidebar-extended' : ''}`}>
             
             {isSidebarOpen ? (
-                <SidebarOpen isSignedIn={isSignedIn} />
+                <SidebarOpen/>
             ) : (
                 <SidebarClose   home={home} shorts={shorts} subs={subs} you={you}  />
             )}

@@ -8,7 +8,7 @@ header{
     align-items: center;
     justify-content: center;
     background-color: #fff;
-    z-index: 9;
+    z-index: 100;
     
 }
 .header-helper{
@@ -131,13 +131,14 @@ header{
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    overflow: hidden;
     cursor: pointer;
     margin-right: 5px;
+    position: relative;
 }
 .c-pfp img{
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: cover;
     object-position: center center;
 }

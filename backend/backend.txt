@@ -28,3 +28,8 @@
 
 13.  frontend folder npm i timeago.js
 
+14.     frontend folder npm i @reduxjs/toolkit react-redux
+
+15. npm i redux-persist
+
+16.     npm i firebase

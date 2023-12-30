@@ -1,5 +1,5 @@
-import '../assets/styles/rv.css'
-import pfp from '../assets/images/pfp.jpeg'
+import '../../assets/styles/rv.css'
+import pfp from '../../assets/images/pfp.jpeg'
 
 const RV=()=>{
     return(

@@ -9,7 +9,6 @@ function App() {
 
   const [isInputFocused,setIsInputFocused]=useState(false);
   const [isSidebarOpen,setSidebarStatus]=useState(false);
-  const[isSignedIn,setSignInStatus]=useState(false);
 
   const handleInputFocus=()=>{
     setIsInputFocused(true);
@@ -35,14 +34,14 @@ function App() {
         handleInputFocus={handleInputFocus}
         handleInputBlur={handleInputBlur}
         handleSidebar={handleSidebar}
-        isSignedIn={isSignedIn}
       />
       <Routes>
-        <Route path='/YoutubeDB' element={<Homepage type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar} isSignedIn={isSignedIn}/>}></Route>
-        <Route path='/YoutubeDB/trends' element={<Homepage type="trend" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar} isSignedIn={isSignedIn}/>}></Route>
-        <Route path='/YoutubeDB/subscriptions' element={<Homepage type="sub" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar} isSignedIn={isSignedIn}/>}></Route>
-        <Route path='/YoutubeDB/video' element={<VideoPage isSidebarOpen={isSidebarOpen} isSignedIn={isSignedIn}/>}></Route>
-        <Route path='/YoutubeDB/short' element={<ShortsPage/>}></Route>
+        <Route path='/' element={<Homepage signPage={false} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/trends' element={<Homepage signPage={false} type="trend" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/subscriptions' element={<Homepage signPage={false} type="sub" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/signup' element={<Homepage signPage={true} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/video' element={<VideoPage isSidebarOpen={isSidebarOpen}/>}/>
+        <Route path='/short' element={<ShortsPage/>}/>
       </Routes>
     </>
   )

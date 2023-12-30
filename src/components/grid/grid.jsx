@@ -4,7 +4,7 @@ import '../../assets/styles/grid.css'
 import GridShorts from './gridShorts'
 import GridVideo from './gridVideo';
 import SignPage from '../signIn/signPage';
-const Grid=({type,isSidebarOpen,resetSidebar})=>{
+const Grid=({signPage,type,isSidebarOpen,resetSidebar})=>{
 
 
 
@@ -23,7 +23,7 @@ const Grid=({type,isSidebarOpen,resetSidebar})=>{
     return(
         <>
             <div className="grid-container">
-                {(type=='signpage')?(
+                {signPage?(
                     <SignPage />
                 ):(
                     <>

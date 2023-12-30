@@ -9,7 +9,7 @@ function SidebarClose({home, shorts, subs, you}) {
                       <img src={shorts} alt="" />
                       <span>Shorts</span>
                   </div>
-                  <Link to="/YoutubeDB/subscriptions">
+                  <Link to="/subscriptions">
                       <div className="sb-close-unit">
                           <img src={subs} alt="" />
                           <span>Subscriptions</span>

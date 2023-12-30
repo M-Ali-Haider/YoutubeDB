@@ -1,15 +1,14 @@
-import '../assets/styles/video.css'
+import '../../assets/styles/video.css'
 import { useState,useEffect } from 'react';
 import axios from 'axios';
-import pfp from '../assets/images/pfp.jpeg'
-import noThumbnail from '../assets/images/noThumbnail.webp'
+import pfp from '../../assets/images/pfp.jpeg'
+import noThumbnail from '../../assets/images/noThumbnail.webp'
 import { Link } from 'react-router-dom';
 import { format } from 'timeago.js';
 const Video=({resetSidebar,video})=>{
 
 
 
-    const [thumbnailSrc, setThumbnailSrc] = useState(video.imgUrl);
     const [channel,setChannel]=useState({});
     useEffect(()=>{
         const fetchChannel = async ()=>{
@@ -18,9 +17,10 @@ const Video=({resetSidebar,video})=>{
         }
         fetchChannel()
     },[video.userId])
-
-
     
+    
+    
+    const [thumbnailSrc, setThumbnailSrc] = useState(video.imgUrl);
     const handleThumbnailError = () => {
         setThumbnailSrc(noThumbnail);
     };
@@ -30,7 +30,7 @@ const Video=({resetSidebar,video})=>{
 
     return(
         <>
-        <Link onClick={resetSidebar} to="/YoutubeDB/video">
+        <Link onClick={resetSidebar} to="/video">
             <div className="video">
                 <div className="thumbnail">
                     <div className="vid-tt">3:00</div>
