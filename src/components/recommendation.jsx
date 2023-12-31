@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import RV from './videoTemplates/rv'
+import axios from "axios";
 
-export function Recommendation({}) {
-  return <div className="rv-grid">
-                        <RV />
-                        <RV />
-                        <RV />
-                        <RV />
-                        <RV />
-                        <RV />
-                    </div>;
-}
+export function Recommendation({tags}) {
+
+  const [videos,setVideos]=useState([])
+  useEffect(()=>{
+    const fetchVideos = async ()=>{
+      const res = await axios.get(`/api/videos/tags?tags=${tags}`)
+      setVideos(res.data)
+    }
+    fetchVideos()
+  },[tags])
+  return (
+  <div className="rv-grid">
+    {videos.map(video=>(
+      <RV key={video._id} video={video}/>
+    ))}
+  </div>
+)}
   

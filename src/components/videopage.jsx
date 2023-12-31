@@ -153,7 +153,7 @@ const VideoPage=({isSidebarOpen})=>{
                     <div className="videopage-second-tags">
                         <TagsSwiper tagsNumber={tagsNumber}/>
                     </div>
-                    <Recommendation/>
+                    <Recommendation tags={currentVideo.tags}/>
                     <div className="vs-shorts-box">
                         <h3 className='shorts-vs-grid-heading'>Shorts</h3>
                         <div className="shorts-vs-grid">

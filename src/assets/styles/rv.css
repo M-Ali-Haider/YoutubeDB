@@ -40,3 +40,6 @@
     height: 38px;
     border-radius: 50%;
 }
+.rv-grid a{
+    width: 100%;
+}
