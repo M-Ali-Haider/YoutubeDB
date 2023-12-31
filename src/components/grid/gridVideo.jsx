@@ -1,5 +1,10 @@
 import Video from '../videoTemplates/video';
 const GridVideo=({videos,resetSidebar})=>{
+
+
+    
+
+
     return(
         <>
         <div className="grid">

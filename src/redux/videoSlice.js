@@ -15,7 +15,7 @@ export const videoSlice = createSlice({
     },
     fetchSuccess: (state, action) => {
       state.loading = false;
-      state.currentVideo = action.payload;
+      state.currentVideo = {...action.payload,viewsIncremented: false};
     },
     fetchFailure: (state) => {
       state.loading = false;
@@ -43,10 +43,16 @@ export const videoSlice = createSlice({
         );
       }
     },
+    incrementView: (state) => {
+      if (state.currentVideo) {
+        state.currentVideo.views += 1;
+        state.currentVideo.viewsIncremented = true;
+      }
+    },
   },
 });
 
-export const { fetchStart, fetchSuccess, fetchFailure, like, dislike } =
+export const { fetchStart, fetchSuccess, fetchFailure, like, dislike, incrementView } =
   videoSlice.actions;
 
 export default videoSlice.reducer;

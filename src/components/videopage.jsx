@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { fetchSuccess, like, dislike } from '../redux/videoSlice'
+import { fetchSuccess, like, dislike, incrementView } from '../redux/videoSlice'
 import { format } from 'timeago.js'
 import { subscription } from '../redux/userSlice'
 
@@ -58,8 +58,15 @@ const VideoPage=({isSidebarOpen})=>{
         }
     }
 
+    const handleView = async ()=>{
+        await axios.put(`/api/videos/view/${currentVideo._id}`)
+        dispatch(incrementView());
+    }
+    useEffect(()=>{
+        handleView();
+    },[currentVideo._id],dispatch)
 
-
+    
 
     return(
         <>

@@ -57,16 +57,23 @@ export const getVideo = async (req, res, next) => {
   }
 };
 
+// videoController.js
 export const addView = async (req, res, next) => {
   try {
-    await Video.findByIdAndUpdate(req.params.id, {
+    const video = await Video.findByIdAndUpdate(req.params.id, {
       $inc: { views: 1 },
     });
+
+    if (!video) {
+      return res.status(404).json("Video not found");
+    }
+
     res.status(200).json("The view has been increased.");
   } catch (err) {
     next(err);
   }
 };
+
 
 export const random = async (req, res, next) => {
   try {

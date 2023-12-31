@@ -27,6 +27,7 @@ function App() {
   const resetSidebar=()=>{
     setSidebarStatus(false);
   }
+
   return (
     <>
       <Header 

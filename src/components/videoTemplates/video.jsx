@@ -23,6 +23,7 @@ const Video=({resetSidebar,video})=>{
 
     const imgSrc = channel.img? channel.img : pfp
 
+
     return(
         <>
         <Link onClick={resetSidebar} to={`/video/${video._id}`}>
