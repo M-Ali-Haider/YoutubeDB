@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom'
 const SignInButton =()=>{
     return(
         <>
-        <Link to="/signup">
+        
             <div className="sign-in-button-helper">
+            <Link to="/signup">
                 <div className="signinButton">
                     <img src={signinbtn} alt="" />
                     <span>Sign in</span>
                 </div>
+            </Link>
             </div>
-        </Link>
+        
         </>
     )
 }
