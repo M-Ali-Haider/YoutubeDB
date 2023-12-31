@@ -1,6 +1,6 @@
 header{
     position: fixed;
-    height: 9%;
+    height: 65px;
     left: 0;
     right: 0;
     top: 0;
@@ -9,7 +9,6 @@ header{
     justify-content: center;
     background-color: #fff;
     z-index: 100;
-    
 }
 .header-helper{
     width: 98%;
@@ -29,6 +28,10 @@ header{
     width: 90px;
     height: 40px;
 }
+.logo img{
+    width: 90px;
+    height: 40px;
+}
 .c-icon{
     width: 40px;
     height: 40px;
@@ -36,6 +39,10 @@ header{
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+}
+.c-icon img{
+    width: 24px;
+    height: 24px;
 }
 .hi{
     transition: 0.3s ease;
@@ -90,6 +97,7 @@ header{
 .input-focused{
     width: calc(70% + 30px);
 }
+
 .input-padded{
     padding-left: 45px;
 }
@@ -164,4 +172,8 @@ header{
     align-items: center;
     justify-content: end;
     gap: 8px;
+}
+
+.pointer-events-none{
+    pointer-events: none;
 }

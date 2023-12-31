@@ -1,0 +1,69 @@
+.searchpage{
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+.vid-dot{
+    height: 2px;
+    width: 2.5px;
+    background-color: #606060;
+    border-radius:1.5px;
+    overflow: hidden;
+}
+.su{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 215px;
+    overflow: hidden;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.su:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+.su-left{
+    height: 201px;
+    width: 360px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.su-left img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+.su-right{
+    color: #606060;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+.su-title{
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    max-height: 52px;
+}
+.su-right img{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center center;
+}
+.su-stats,.su-user-details{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.su-stats{
+    height: 18px;
+}
+.su-user-details{
+    height: 50px;
+}

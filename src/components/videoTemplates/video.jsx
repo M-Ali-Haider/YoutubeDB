@@ -1,14 +1,13 @@
 import '../../assets/styles/video.css'
 import { useState,useEffect } from 'react';
 import axios from 'axios';
-import pfp from '../../assets/images/pfp.jpeg'
+import pfp from '../../assets/images/pfp.webp'
 import noThumbnail from '../../assets/images/noThumbnail.webp'
 import { Link } from 'react-router-dom';
 import { format } from 'timeago.js';
+
+
 const Video=({resetSidebar,video})=>{
-
-
-
     const [channel,setChannel]=useState({});
     useEffect(()=>{
         const fetchChannel = async ()=>{
@@ -17,28 +16,24 @@ const Video=({resetSidebar,video})=>{
         }
         fetchChannel()
     },[video.userId])
-    
-    
-    
     const [thumbnailSrc, setThumbnailSrc] = useState(video.imgUrl);
     const handleThumbnailError = () => {
         setThumbnailSrc(noThumbnail);
     };
 
-
-
+    const imgSrc = channel.img? channel.img : pfp
 
     return(
         <>
         <Link onClick={resetSidebar} to={`/video/${video._id}`}>
             <div className="video">
                 <div className="thumbnail">
-                    <div className="vid-tt">3:00</div>
+                    <div className="vid-tt">{video.duration}</div>
                     <img src={thumbnailSrc} onError={handleThumbnailError} alt="No Image Found" />
                 </div>
                 <div className="vid-details">
                     <div className="vid-pfp">
-                        <img src={pfp} alt="bruh" />
+                        <img src={imgSrc} alt="bruh" />
                     </div>
                     <div className="vid-info">
                         <div className="vid-title">{video.title}</div>

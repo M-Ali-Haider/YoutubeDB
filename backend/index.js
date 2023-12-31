@@ -18,9 +18,10 @@ const connect = () => {
       console.log("Connected to DB");
     })
     .catch((err) => {
-      throw err;
+      console.error("Error connecting to DB:", err.message);
     });
 };
+
 
 //middlewares
 app.use(cookieParser())

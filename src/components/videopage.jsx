@@ -21,8 +21,6 @@ import { subscription } from '../redux/userSlice'
 
 const VideoPage=({isSidebarOpen})=>{
     const tagsNumber=4.8;
-    
-
 
     const { currentUser } = useSelector((state) => state.user);
     const { currentVideo } = useSelector((state) => state.video);
@@ -52,10 +50,12 @@ const VideoPage=({isSidebarOpen})=>{
     }
 
     const handleSub= async()=>{
-        currentUser.subscribedUsers.includes(channel._id)?
-        await axios.put(`/api/users/unsub/${channel._id}`):
-        await axios.put(`/api/users/sub/${channel._id}`)
-        dispatch(subscription(channel._id))
+        if(currentUser){
+            currentUser.subscribedUsers.includes(channel._id)?
+            await axios.put(`/api/users/unsub/${channel._id}`):
+            await axios.put(`/api/users/sub/${channel._id}`)
+            dispatch(subscription(channel._id))
+        }
     }
 
 
@@ -70,7 +70,7 @@ const VideoPage=({isSidebarOpen})=>{
             <div className="videopage-helper">
                 <div className="videopage-first">
                     {/* Video Url */}
-                    <video className='mv' src={currentVideo.videoUrl} controls></video>
+                    <video className='mv' src={currentVideo.videoUrl} controls autoPlay={true}></video>
                     <div className="mv-mobile-view-something">
                         <h2 className='mv-title'>{currentVideo.title}</h2>
                         <div className="mv-buttons">
@@ -84,8 +84,13 @@ const VideoPage=({isSidebarOpen})=>{
                                 </div>
 
                                 {/* Subscribe */}
-                                <div onClick={handleSub} className={`mv-subscribe-button ${currentUser.subscribedUsers?.includes(channel._id)?'mv-subscribe-button-active':''}`}>
-                                    {currentUser.subscribedUsers?.includes(channel._id)?"Subscribed":"Subscribe"}
+                                <div 
+                                    onClick={handleSub} 
+                                    className={
+                                     `mv-subscribe-button ${currentUser && currentUser.subscribedUsers?.includes(channel._id) 
+                                     ? 'mv-subscribe-button-active' : ''}`}
+                                >
+                                    {currentUser && currentUser.subscribedUsers?.includes(channel._id) ? "Subscribed" : "Subscribe"}
                                 </div>
                             </div>
                             <div className="mv-buttons-second">
@@ -93,7 +98,7 @@ const VideoPage=({isSidebarOpen})=>{
 
                                     {/* Like */}
                                     <div className="mv-like mv-total-like" onClick={handleLike}>
-                                        {currentVideo.likes?.includes(currentUser._id)
+                                        {currentUser && currentVideo.likes?.includes(currentUser._id)
                                             ?
                                                 <img className='rotate-like' src={dislikeactive} alt="" /> 
                                             :
@@ -107,7 +112,7 @@ const VideoPage=({isSidebarOpen})=>{
                                         {currentVideo.dislikes?.length >=1 ?
                                             <div>{currentVideo.dislikes?.length}</div>
                                          :null}
-                                        {currentVideo.dislikes?.includes(currentUser._id)
+                                        {currentUser && currentVideo.dislikes?.includes(currentUser._id)
                                             ?
                                                 <img src={dislikeactive} alt="" />
                                             :

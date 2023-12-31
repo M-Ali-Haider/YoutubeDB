@@ -2,7 +2,7 @@ import Sidebar from "./sidebar/sidebar";
 import Tags from "./tags/tags";
 import Main from "./mai";
 import Footer from "./footer";
-const Homepage=({signPage,type,isSidebarOpen,resetSidebar,isSignedIn})=>{
+const Homepage=({searchPage,signPage,type,isSidebarOpen,resetSidebar,isSignedIn})=>{
     const tagsNumber= isSidebarOpen ? 13 : 15
     return(
         <>
@@ -15,6 +15,7 @@ const Homepage=({signPage,type,isSidebarOpen,resetSidebar,isSignedIn})=>{
             tagsNumber={tagsNumber}
         />
         <Main
+            searchPage={searchPage}
             signPage={signPage}
             type={type}
             isSidebarOpen={isSidebarOpen}

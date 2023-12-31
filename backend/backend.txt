@@ -33,3 +33,5 @@
 15. npm i redux-persist
 
 16.     npm i firebase
+
+17.     npm install fluent-ffmpeg

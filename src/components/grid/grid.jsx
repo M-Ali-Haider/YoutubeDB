@@ -4,7 +4,8 @@ import '../../assets/styles/grid.css'
 import GridShorts from './gridShorts'
 import GridVideo from './gridVideo';
 import SignPage from '../signIn/signPage';
-const Grid=({signPage,type,isSidebarOpen,resetSidebar})=>{
+import Search from '../search';
+const Grid=({searchPage,signPage,type,isSidebarOpen,resetSidebar})=>{
 
 
 
@@ -19,12 +20,13 @@ const Grid=({signPage,type,isSidebarOpen,resetSidebar})=>{
     const maxVideos = isSidebarOpen ? 6 : 4;
     const displayedVideos = videos.slice(0, maxVideos);
     const displayedVideos2 = videos.slice(maxVideos, maxVideos*2);
-    
     return(
         <>
             <div className="grid-container">
                 {signPage?(
                     <SignPage />
+                ): searchPage?(
+                    <Search />
                 ):(
                     <>
                     <GridVideo
