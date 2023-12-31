@@ -26,7 +26,7 @@ const Grid=({searchPage,signPage,type,isSidebarOpen,resetSidebar})=>{
                 {signPage?(
                     <SignPage />
                 ): searchPage?(
-                    <Search />
+                    <Search resetSidebar={resetSidebar}/>
                 ):(
                     <>
                     <GridVideo

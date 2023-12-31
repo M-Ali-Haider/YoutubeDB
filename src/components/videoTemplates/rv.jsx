@@ -7,7 +7,7 @@ import { format } from 'timeago.js'
 import { Link } from 'react-router-dom'
 
 
-const RV=({video})=>{
+const RV=({video,resetSidebar})=>{
 
     const [channel,setChannel]=useState({});
     useEffect(()=>{
@@ -27,7 +27,7 @@ const RV=({video})=>{
     return(
         <>
         <Link to={`/video/${video._id}`}>
-        <div className="rv-unit">
+        <div className="rv-unit" onClick={resetSidebar}>
             <div className="rv-image-div">
                 <img src={isImgSrc} alt="" onError={handleSrcError}/>
             </div>

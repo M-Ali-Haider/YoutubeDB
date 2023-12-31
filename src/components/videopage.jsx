@@ -19,7 +19,7 @@ import { fetchSuccess, like, dislike, incrementView } from '../redux/videoSlice'
 import { format } from 'timeago.js'
 import { subscription } from '../redux/userSlice'
 
-const VideoPage=({isSidebarOpen})=>{
+const VideoPage=({isSidebarOpen,resetSidebar})=>{
     const tagsNumber=4.8;
 
     const { currentUser } = useSelector((state) => state.user);
@@ -165,7 +165,7 @@ const VideoPage=({isSidebarOpen})=>{
                     <div className="videopage-second-tags">
                         <TagsSwiper tagsNumber={tagsNumber}/>
                     </div>
-                    <Recommendation tags={currentVideo.tags}/>
+                    <Recommendation tags={currentVideo.tags} resetSidebar={resetSidebar}/>
                     <div className="vs-shorts-box">
                         <h3 className='shorts-vs-grid-heading'>Shorts</h3>
                         <div className="shorts-vs-grid">

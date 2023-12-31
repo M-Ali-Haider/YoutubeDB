@@ -3,7 +3,7 @@ import '../assets/styles/search.css'
 import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 import SU from './searchunit'
-const Search =()=>{
+const Search =({resetSidebar})=>{
     const [videos,setVdeos]=useState([])
     const query = useLocation().search 
     useEffect(()=>{
@@ -17,7 +17,7 @@ const Search =()=>{
         <>
         <div className="searchpage">
             {videos.map(video=>(
-                <SU key={video._id} video={video}/>
+                <SU key={video._id} video={video} resetSidebar={resetSidebar}/>
             ))}
         </div>
         </>

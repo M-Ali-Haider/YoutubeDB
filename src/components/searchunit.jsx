@@ -5,7 +5,7 @@ import noThumbnail from '../assets/images/noThumbnail.webp'
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const SU=({video})=>{
+const SU=({video,resetSidebar})=>{
     const [channel,setChannel]=useState({});
     useEffect(()=>{
         const fetchChannel = async ()=>{
@@ -23,7 +23,7 @@ const SU=({video})=>{
     return(
         <>
         <Link to={`/video/${video._id}`}>
-            <div className="su">
+            <div className="su" onClick={resetSidebar}>
                 <div className="su-left"><img src={thumbnailSrc} onError={handleThumbnailError} alt="" /></div>
                 <div className="su-right">
                     <div className="su-title">{video.title}</div>
