@@ -40,7 +40,7 @@ function App() {
         <Route path='/trends' element={<Homepage signPage={false} type="trend" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
         <Route path='/subscriptions' element={<Homepage signPage={false} type="sub" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
         <Route path='/signup' element={<Homepage signPage={true} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
-        <Route path='/video' element={<VideoPage isSidebarOpen={isSidebarOpen}/>}/>
+        <Route path='/video/:id' element={<VideoPage isSidebarOpen={isSidebarOpen}/>}/>
         <Route path='/short' element={<ShortsPage/>}/>
       </Routes>
     </>

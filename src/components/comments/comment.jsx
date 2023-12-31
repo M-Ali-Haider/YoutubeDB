@@ -1,18 +1,36 @@
+import { useEffect, useState } from 'react'
 import like from '../../assets/images/like.svg'
 import pfp from '../../assets/images/pfp.jpeg'
-const Comment=()=>{
+import axios from 'axios'
+import { format } from 'timeago.js'
+const Comment=({comment})=>{
+
+    const [channel,setChannel]=useState([])
+    useEffect(()=>{
+        const fetchComment = async ()=>{
+            const res = await axios.get(`/api/users/find/${comment.userId}`)
+            setChannel(res.data)
+        }
+        fetchComment();
+    },[comment.userId])
+
+    const imgSrc = channel && channel.img ? channel.img : pfp;
+    
+
     return(
         <>
         <div className="comment-unit">
             <div className="comment-pfp">
-                <img src={pfp} alt="" />
+                <img src={imgSrc} alt="" />
             </div>
             <div className="cu-helper">
                 <div className="cu-first">
-                    <div className="comment-id">@Bruhmius</div>
-                    <div className="comment-time-elapsed">4 hours ago</div>
+                    <div className="comment-id">{channel.name}</div>
+                    <div className="comment-time-elapsed">{format(comment.createdAt)}</div>
                 </div>
-                <p className='cu-second'>Wow that was the best Video I've Seen in my life, I'm already Siraiki so cant wait to get it on with my own CR.</p>
+                <p className='cu-second'>
+                    {comment.desc}
+                </p>
                 <div className="cu-third">
                     <div className="cu-third-first">
                         <div className="cu-like">

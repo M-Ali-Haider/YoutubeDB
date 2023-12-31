@@ -30,9 +30,7 @@
 
 .mv{
     width: 100%;
-    background-image: url('../images/thumbnail.jpeg');
-    background-position: center center;
-    background-size: cover;
+    max-height: 600px;
     border-radius: 7.5px;
 }
 .mv-title{
@@ -90,7 +88,7 @@
 }
 .mv-subscribe-button{
     width: 94px;
-    height: 36px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,9 +99,19 @@
     cursor: pointer;
     background-color: #0f0f0f;
     margin-left: 15px;
+    transition: all 0.3s ease;
 }
 .mv-subscribe-button:hover{
     background-color: rgba(0,0,0,0.85);
+}
+
+.mv-subscribe-button-active{
+    width: 104px;
+    color: black;
+    background-color: #f2f2f2;
+}
+.mv-subscribe-button-active:hover{
+    background-color: #f2f2f2;
 }
 .mv-button{
     height: 36px;
@@ -143,6 +151,7 @@
     cursor: pointer;
     transition: 0.25s ease;
 }
+ 
 .mv-total-like{
     border-right: 1px solid #606060;
 }
