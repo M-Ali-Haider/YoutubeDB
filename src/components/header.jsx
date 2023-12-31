@@ -31,6 +31,15 @@ function Header({isInputFocused,handleInputFocus,handleInputBlur,handleSidebar})
     const closeUpload=()=>{
         setUploadStatus(false)
     }
+    
+    const handleSearch = () => {
+        navigate(`/search?q=${searchText}`);
+      };
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+          handleSearch();
+        }
+      };
 
     const [searchText,setSearchText]=useState("");
 
@@ -62,6 +71,7 @@ function Header({isInputFocused,handleInputFocus,handleInputBlur,handleSidebar})
                                 onFocus={handleInputFocus}
                                 onBlur={handleInputBlur}
                                 onChange={e=>setSearchText(e.target.value)}
+                                onKeyDown={handleKeyDown} 
                             />
                             <img className={`search-abs ${isInputFocused ? '' : 'display-none'}`} src={searcher} alt="" />
                         </div>
