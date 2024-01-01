@@ -1,0 +1,63 @@
+.channel-page{
+    position: fixed;
+    top: 65px;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    left: 90px;
+    transition: all 0.5s ease;
+    overflow: scroll;
+    overflow-x:hidden;
+    padding-left: 20px;
+}
+.channel-page-sidebar{
+    left: 224px;
+}
+.vid-dot{
+    height: 2px;
+    width: 2.5px;
+    background-color: #606060;
+    border-radius:1.5px;
+    overflow: hidden;
+}
+.channel-info{
+    display: flex;
+    align-items: center;
+    gap:5px;
+    height: 20px;
+    color: #606060;
+    font-size: 14px;
+}
+.channel-pfp img{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center center;
+}
+.channel-name{
+    font-size: 36px;
+    font-weight: 700;
+}
+.user-info{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.cover-photo{
+    height: 206px;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+.cover-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+.channel-vids-grid{
+    padding-top: 5px;
+    padding-left: 20px;
+}

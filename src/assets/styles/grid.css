@@ -12,7 +12,7 @@
     padding: 24px 0px;
 }
 
-.grid a{
+.grid .video{
     flex: 1;
     max-width: 382px;
     min-width: 300px;

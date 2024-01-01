@@ -32,6 +32,8 @@
     width: 100%;
     max-height: 600px;
     border-radius: 7.5px;
+    object-fit: cover;
+    object-position: center center;
 }
 .mv-title{
     font-size: 20px;

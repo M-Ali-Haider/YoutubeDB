@@ -158,3 +158,12 @@ export const getBySearch = async (req, res, next) => {
 };
 
 
+export const getVideoCountByUser = async (req, res, next) => {
+  try {
+    const userId = req.params.userId;
+    const videoCount = await Video.countDocuments({ userId });
+    res.status(200).json({ videoCount });
+  } catch (err) {
+    next(err);
+  }
+};

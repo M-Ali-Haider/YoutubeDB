@@ -83,13 +83,15 @@ const SidebarOpen=()=>{
             {currentUser?(<>
                 <div className="sb-comp">
                     <div className="comp-heading">You</div>
-                    <div 
-                        className={`sb-unit ${activeItem==='yourchannel' ? 'sb-active':''}`}
-                        onClick={() => handleItemClick('yourchannel')}
-                    >
-                        {activeItem==='yourchannel'?(<img src={yourchannelopen} alt="" />):(<img src={yourchannel} alt="" />)} 
-                        <span>Your channel</span>
-                    </div>
+                    <Link to={`/channel/${currentUser._id}`}>
+                        <div 
+                            className={`sb-unit ${activeItem==='yourchannel' ? 'sb-active':''}`}
+                            onClick={() => handleItemClick('yourchannel')}
+                        >
+                            {activeItem==='yourchannel'?(<img src={yourchannelopen} alt="" />):(<img src={yourchannel} alt="" />)} 
+                            <span>Your channel</span>
+                        </div>
+                    </Link>
                     <div 
                         className={`sb-unit ${activeItem==='history' ? 'sb-active':''}`}
                         onClick={() => handleItemClick('history')}

@@ -21,8 +21,8 @@ import { subscription, watchlater } from '../redux/userSlice'
 import save from '../assets/images/save.svg'
 
 const VideoPage=({isSidebarOpen,resetSidebar})=>{
-    const tagsNumber=4.8;
 
+    const tagsNumber=4.8;
     const { currentUser } = useSelector((state) => state.user);
     const { currentVideo } = useSelector((state) => state.video);
     const dispatch = useDispatch();
