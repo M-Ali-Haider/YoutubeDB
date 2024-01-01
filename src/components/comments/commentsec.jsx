@@ -34,12 +34,13 @@ const CommentSection=({videoId})=>{
         }
       };
     
+      console.log(comments)
 
     return(
         <>
         <div className="comment-container">
             <div className="comments-analytics">
-                <h2 className="comments-total">71 Comments</h2>
+                <h2 className="comments-total">{comments.length} Comments</h2>
                 <div className="comments-sort">
                     <img src={sortby} alt="" />
                     <span>Sort by</span>
