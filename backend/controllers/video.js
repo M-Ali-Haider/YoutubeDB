@@ -135,15 +135,25 @@ export const watch = async (req, res, next) => {
 };
 
 
-export const getByTag = async (req, res, next) => {
-  const tags = req.query.tags.split(",");
+export const getTags = async (req, res, next) => {
   try {
-    const videos = await Video.find({ tags: { $in: tags } }).limit(20);
+    const allTags = await Video.distinct("tags");
+    res.status(200).json(allTags);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const getByTag = async (req, res, next) => {
+  const tag = req.params.tag;
+  try {
+    const videos = await Video.find({ tags: tag }).limit(20);
     res.status(200).json(videos);
   } catch (err) {
     next(err);
   }
 };
+
 
 export const getBySearch = async (req, res, next) => {
   const query = req.query.q;
