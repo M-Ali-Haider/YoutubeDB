@@ -7,7 +7,7 @@ export function Recommendation({tags,resetSidebar}) {
   const [videos,setVideos]=useState([])
   useEffect(()=>{
     const fetchVideos = async ()=>{
-      const res = await axios.get(`/api/videos/tags?tags=${tags}`)
+      const res = await axios.get(`/api/videos/rv/tags?tags=${tags}`)
       setVideos(res.data)
     }
     fetchVideos()

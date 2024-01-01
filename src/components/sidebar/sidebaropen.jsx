@@ -142,35 +142,42 @@ const SidebarOpen=()=>{
                     <span>Trending</span>
                 </div>
                 </Link>
-
-                <div 
-                    className={`sb-unit ${activeItem==='music' ? 'sb-active':''}`}
-                    onClick={() => handleItemClick('music')}
-                >
-                    {activeItem==='music'?(<img src={musicopen} alt="" />):(<img src={music} alt="" />)} 
-                    <span>Music</span>
-                </div>
-                <div 
-                    className={`sb-unit ${activeItem==='gaming' ? 'sb-active':''}`}
-                    onClick={() => handleItemClick('gaming')}
-                >
-                    {activeItem==='gaming'?(<img src={gamingopen} alt="" />):(<img src={gaming} alt="" />)} 
-                    <span>Gaming</span>
-                </div>
-                <div 
-                    className={`sb-unit ${activeItem==='news' ? 'sb-active':''}`}
-                    onClick={() => handleItemClick('news')}
-                >  
-                    {activeItem==='news'?(<img src={newsopen} alt="" />):(<img src={news} alt="" />)} 
-                    <span>News</span>
-                </div>
-                <div 
-                    className={`sb-unit ${activeItem==='sports' ? 'sb-active':''}`}
-                    onClick={() => handleItemClick('sports')}
-                >
-                    {activeItem==='sports'?(<img src={sportopen} alt="" />):(<img src={sport} alt="" />)} 
-                    <span>Sports</span>
-                </div>
+                <Link to="/tags/music">
+                    <div 
+                        className={`sb-unit ${activeItem==='music' ? 'sb-active':''}`}
+                        onClick={() => handleItemClick('music')}
+                    >
+                        {activeItem==='music'?(<img src={musicopen} alt="" />):(<img src={music} alt="" />)} 
+                        <span>Music</span>
+                    </div>
+                </Link>
+                <Link to="/tags/gaming">
+                    <div 
+                        className={`sb-unit ${activeItem==='gaming' ? 'sb-active':''}`}
+                        onClick={() => handleItemClick('gaming')}
+                    >
+                        {activeItem==='gaming'?(<img src={gamingopen} alt="" />):(<img src={gaming} alt="" />)} 
+                        <span>Gaming</span>
+                    </div>
+                </Link>
+                <Link to="/tags/news">
+                    <div 
+                        className={`sb-unit ${activeItem==='news' ? 'sb-active':''}`}
+                        onClick={() => handleItemClick('news')}
+                    >  
+                        {activeItem==='news'?(<img src={newsopen} alt="" />):(<img src={news} alt="" />)} 
+                        <span>News</span>
+                    </div>
+                </Link>
+                <Link to="/tags/sports">
+                    <div 
+                        className={`sb-unit ${activeItem==='sports' ? 'sb-active':''}`}
+                        onClick={() => handleItemClick('sports')}
+                    >
+                        {activeItem==='sports'?(<img src={sportopen} alt="" />):(<img src={sport} alt="" />)} 
+                        <span>Sports</span>
+                    </div>
+                </Link>
             </div>
             <div className="sb-comp">
                 <div 

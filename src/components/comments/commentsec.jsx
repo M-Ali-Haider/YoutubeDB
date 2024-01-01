@@ -23,7 +23,6 @@ const CommentSection=({videoId})=>{
         }
         fetchComments()
     },[videoId])
-
     const handleCommentSubmit = async (newComment) => {
         try {
           await axios.post('/api/comments', { ...newComment, videoId });
@@ -33,9 +32,6 @@ const CommentSection=({videoId})=>{
           console.error('Error posting comment:', err);
         }
       };
-    
-      console.log(comments)
-
     return(
         <>
         <div className="comment-container">

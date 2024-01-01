@@ -3,7 +3,7 @@ import Tags from "./tags/tags";
 import Main from "./mai";
 import Footer from "./footer";
 import Channel from "./channel";
-const Homepage=({channelPage,searchPage,signPage,type,isSidebarOpen,resetSidebar,isSignedIn})=>{
+const Homepage=({tagsPage,channelPage,searchPage,signPage,type,isSidebarOpen,resetSidebar,isSignedIn})=>{
     const tagsNumber= isSidebarOpen ? 13 : 15
     return(
         <>
@@ -20,6 +20,7 @@ const Homepage=({channelPage,searchPage,signPage,type,isSidebarOpen,resetSidebar
                     tagsNumber={tagsNumber}
                 />
                 <Main
+                    tagsPage={tagsPage}
                     channelPage={channelPage}
                     searchPage={searchPage}
                     signPage={signPage}

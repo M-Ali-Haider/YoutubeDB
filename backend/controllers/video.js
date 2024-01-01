@@ -144,6 +144,7 @@ export const getTags = async (req, res, next) => {
   }
 };
 
+// Modify the existing getByTag controller function
 export const getByTag = async (req, res, next) => {
   const tag = req.params.tag;
   try {
@@ -153,7 +154,15 @@ export const getByTag = async (req, res, next) => {
     next(err);
   }
 };
-
+export const getByRVTag = async (req, res, next) => {
+  const tags = req.query.tags.split(",");
+  try {
+    const videos = await Video.find({ tags: { $in: tags } }).limit(20);
+    res.status(200).json(videos);
+  } catch (err) {
+    next(err);
+  }
+};
 
 export const getBySearch = async (req, res, next) => {
   const query = req.query.q;

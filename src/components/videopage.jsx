@@ -91,15 +91,7 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
         document.removeEventListener('mousedown', handleOutsideClick);
         };
     }, []);
-    useEffect(()=>{
-        if(currentUser){
-            console.log("Current User: "+currentUser._id);
-            console.log("Current Video: "+currentVideo._id);
-            console.log(currentUser && currentUser.watchLater.includes(currentVideo._id));
-        }
-    },[currentVideo._id])
     const handleWatchLater= async()=>{
-            console.log(currentUser && currentUser.watchLater.includes(currentVideo._id));
         if(currentUser){
             currentUser.watchLater.includes(currentVideo._id)?
             await axios.put(`/api/users/watchlater/remove/${currentVideo._id}`):
@@ -111,6 +103,7 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
         handleWatchLater()
         closeDots()
     }
+    
     return(
         <>
         <div className={`slideSidebar ${isSidebarOpen ? 'slideSidebarOpen' : ''}`}>
@@ -214,7 +207,7 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
                 <div className="videopage-second">
                     <Playlist />
                     <div className="videopage-second-tags">
-                        <TagsSwiper tagsNumber={tagsNumber}/>
+                        <TagsSwiper  tagsNumber={tagsNumber}/>
                     </div>
                     <Recommendation tags={currentVideo.tags} resetSidebar={resetSidebar}/>
                     <div className="vs-shorts-box">

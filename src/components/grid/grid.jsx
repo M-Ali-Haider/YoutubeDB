@@ -5,7 +5,8 @@ import GridShorts from './gridShorts'
 import GridVideo from './gridVideo';
 import SignPage from '../signIn/signPage';
 import Search from '../search';
-const Grid=({searchPage,signPage,type,isSidebarOpen,resetSidebar})=>{
+import TagsPage from '../tagspage';
+const Grid=({tagsPage,searchPage,signPage,type,isSidebarOpen,resetSidebar})=>{
 
 
 
@@ -27,6 +28,8 @@ const Grid=({searchPage,signPage,type,isSidebarOpen,resetSidebar})=>{
                     <SignPage />
                 ): searchPage?(
                     <Search resetSidebar={resetSidebar}/>
+                ): tagsPage?(
+                    <TagsPage resetSidebar={resetSidebar}/>
                 ):(
                     <>
                     <GridVideo

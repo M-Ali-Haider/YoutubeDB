@@ -1,5 +1,5 @@
 import express from "express";
-import { getTags,getUserVideos,addVideo, addView, getVideoCountByUser ,getBySearch, getByTag, yourvids, getVideo, random, sub, trend, watch } from "../controllers/video.js";
+import { getByRVTag,getTags,getUserVideos,addVideo, addView, getVideoCountByUser ,getBySearch, getByTag, yourvids, getVideo, random, sub, trend, watch } from "../controllers/video.js";
 import { verifyToken } from "../verifyToken.js";
 
 const router = express.Router();
@@ -15,6 +15,7 @@ router.get("/random", random)
 router.get("/sub",verifyToken, sub)
 router.get("/yourvids",verifyToken, yourvids)
 router.get("/watch",verifyToken, watch)
+router.get("/rv/tags", getByRVTag)
 router.get("/search", getBySearch)
 router.get("/getvideo/:userId", verifyToken, getUserVideos);
 router.get('/count/:userId', getVideoCountByUser);

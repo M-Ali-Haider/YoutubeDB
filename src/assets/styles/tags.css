@@ -27,8 +27,9 @@
     cursor: pointer;
     font-weight: 500;
     font-size: 14px;
-    transition: 0.25s ease;
+    transition: all 0.25s ease;
     width: auto!important;
+    text-transform: capitalize;
 }
 
 .tags-unit:hover{
@@ -132,11 +133,12 @@
     cursor: pointer;
     font-weight: 500;
     font-size: 14px;
-    transition: 0.25s ease;
+    transition: all 0.25s ease;
     min-width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-transform: capitalize;
 }
 .tagse-unit-active{
     background-color: black;
@@ -153,5 +155,10 @@
     background-color: black;
     color: white;
 }
+.tags-unit-active:hover{
+    background-color: black;
+    color: white;
+}
+
 
 

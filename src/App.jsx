@@ -37,14 +37,15 @@ function App() {
         handleSidebar={handleSidebar}
       />
       <Routes>
-        <Route path='/' element={<Homepage channelPage={false}  searchPage={false} signPage={false} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
-        <Route path='/trends' element={<Homepage channelPage={false} searchPage={false} signPage={false} type="trend" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
-        <Route path='/subscriptions' element={<Homepage channelPage={false} searchPage={false} signPage={false} type="sub" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
-        <Route path='/watchlater' element={<Homepage channelPage={false} searchPage={false} signPage={false} type="watch" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
-        <Route path='/yourvids' element={<Homepage channelPage={false} searchPage={false} signPage={false} type="yourvids" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
-        <Route path='/signup' element={<Homepage channelPage={false} searchPage={false} signPage={true} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
-        <Route path='/search' element={<Homepage channelPage={false} searchPage={true} signPage={false} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
-        <Route path='/channel/:id' element={<Homepage channelPage={true} searchPage={true} signPage={false} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/' element={<Homepage tagsPage={false} channelPage={false}  searchPage={false} signPage={false} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/trends' element={<Homepage tagsPage={false} channelPage={false} searchPage={false} signPage={false} type="trend" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/subscriptions' element={<Homepage tagsPage={false} channelPage={false} searchPage={false} signPage={false} type="sub" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/watchlater' element={<Homepage tagsPage={false} channelPage={false} searchPage={false} signPage={false} type="watch" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/yourvids' element={<Homepage tagsPage={false} channelPage={false} searchPage={false} signPage={false} type="yourvids" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/signup' element={<Homepage tagsPage={false} channelPage={false} searchPage={false} signPage={true} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/search' element={<Homepage tagsPage={false} channelPage={false} searchPage={true} signPage={false} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/channel/:id' element={<Homepage tagsPage={false} channelPage={true} searchPage={false} signPage={false} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/tags/:tag' element={<Homepage tagsPage={true} channelPage={false} searchPage={false} signPage={false} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
         <Route path='/video/:id' element={<VideoPage isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
         <Route path='/short' element={<ShortsPage/>}/>
       </Routes>

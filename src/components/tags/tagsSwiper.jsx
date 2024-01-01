@@ -1,14 +1,31 @@
 import next from '../../assets/images/next.svg'
 import prev from '../../assets/images/prev.svg'
 import {Swiper,SwiperSlide} from 'swiper/react'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import 'swiper/css'
 import 'swiper/css/navigation'
 import {Navigation} from 'swiper/modules'
 import SwiperCore from 'swiper/core'
 SwiperCore.use([Navigation])
+import { useState,useEffect } from 'react';
 
 const TagsSwiper=({tagsNumber})=>{
 
+    const [tags, setTags] = useState([]);
+    useEffect(() => {
+        const fetchTags = async () => {
+        try {
+            const response = await axios.get('/api/videos/tags');
+            const data = response.data;
+            setTags(['All', ...data]);
+        } catch (error) {
+            console.log("Error tags tagswiper")
+        }
+        };
+        fetchTags();
+    }, []);
+    const [activeIndex, setActiveIndex] = useState(0);
     const handleSlideChange = (swiper) => {
         const currentIndex = swiper.activeIndex;
         const isFirstSlide = currentIndex === 0;
@@ -16,7 +33,7 @@ const TagsSwiper=({tagsNumber})=>{
         if (tagEmpPrevElement) {
           tagEmpPrevElement.style.display = isFirstSlide ? 'none' : 'block';
         }
-      };
+    };
     return(
         <>
         <Swiper
@@ -27,22 +44,13 @@ const TagsSwiper=({tagsNumber})=>{
             allowTouchMove={true}
             className='tagsSwiper'
         >
-            <SwiperSlide className="tags-unit tags-unit-active">All</SwiperSlide>
-            <SwiperSlide className="tags-unit">Music</SwiperSlide>
-            <SwiperSlide className="tags-unit">Action Thrillers</SwiperSlide>
-            <SwiperSlide className="tags-unit">Siraiki Cinema</SwiperSlide>
-            <SwiperSlide className="tags-unit">Thrillers</SwiperSlide>
-            <SwiperSlide className="tags-unit">News</SwiperSlide>
-            <SwiperSlide className="tags-unit">Comedy</SwiperSlide>
-            <SwiperSlide className="tags-unit">Pakistani dramas</SwiperSlide>
-            <SwiperSlide className="tags-unit">Live</SwiperSlide>
-            <SwiperSlide className="tags-unit">Wickets</SwiperSlide>
-            <SwiperSlide className="tags-unit">Gaming</SwiperSlide>
-            <SwiperSlide className="tags-unit">History</SwiperSlide>
-            <SwiperSlide className="tags-unit">Anime</SwiperSlide>
-            <SwiperSlide className="tags-unit">Romance</SwiperSlide>
-            <SwiperSlide className="tags-unit">Football</SwiperSlide>
-            <SwiperSlide className="tags-unit">Boqir</SwiperSlide>
+            {tags.map((tag, index) => (
+                <SwiperSlide key={index} className={`tags-unit ${index === activeIndex ? 'tags-unit-active' : ''}`}>
+                    <Link onClick={() => setActiveIndex(index)} to={index === 0 ? '/' : `/tags/${tag}`} className="tag-link">
+                        {tag}
+                    </Link>
+                </SwiperSlide>
+            ))}
             
             <div className="tag-next-div">
                 <div className="tag-emp-next"></div>
