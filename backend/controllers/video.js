@@ -167,3 +167,18 @@ export const getVideoCountByUser = async (req, res, next) => {
     next(err);
   }
 };
+
+export const getUserVideos = async (req, res, next) => {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findById(userId);
+    if (!user) {
+      return next(createError(404, "User not found!"));
+    }
+    const userVideos = await Video.find({ userId });
+    const sortedVideos = userVideos.sort((a, b) => b.createdAt - a.createdAt);
+    res.status(200).json(sortedVideos);
+  } catch (err) {
+    next(err);
+  }
+};

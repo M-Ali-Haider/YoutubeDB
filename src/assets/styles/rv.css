@@ -7,9 +7,10 @@
     width: 100%;
 }
 .rv-image-div{
-    width: 168px;
+    min-width: 168px;
+    max-width: 168px;
     height: 100%;
-    border-radius: 2.5px;
+    border-radius: 5px;
     overflow: hidden;
 }
 .rv-title{

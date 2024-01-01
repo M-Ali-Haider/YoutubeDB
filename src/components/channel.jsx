@@ -17,7 +17,7 @@ const Channel = ({isSidebarOpen,resetSidebar})=>{
                 setUser(res.data)
                 const rese = await axios.get(`/api/videos/count/${path}`)
                 setTotalVideos(rese.data)
-                const videos = await axios.get(`/api/videos/yourvids`)
+                const videos = await axios.get(`/api/videos//getvideo/${path}`)
                 setVideos(videos.data)
             } catch (err) {console.log("Error in channel.jsx while fetching user")}
         }
