@@ -3,11 +3,13 @@ import '../../assets/styles/signin.css'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { loginFailure, loginSuccess,loginStart } from '../../redux/userSlice'
-
 import { auth,provider} from '../../firebase'
 import { signInWithPopup } from "firebase/auth"
+import { useNavigate } from 'react-router-dom'
 
 const SignPage=()=>{
+
+    const navigate = useNavigate()
     const [name,setName]=useState("")
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
@@ -19,6 +21,7 @@ const SignPage=()=>{
         try {
             const res = await axios.post("api/auth/signin/",{name,password})
             dispatch(loginSuccess(res.data))
+            navigate('/')
         } catch (err) {
             dispatch(loginFailure())
         }
@@ -35,12 +38,12 @@ const SignPage=()=>{
                 }).then((res)=>{
                     dispatch(loginSuccess(res.data))
                 })
+                navigate('/')
             })
             .catch(err=>{
                 dispatch(loginFailure())
             })
     }
-
     return(
         <>
         <div className="signuppage">

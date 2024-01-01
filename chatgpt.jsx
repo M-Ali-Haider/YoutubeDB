@@ -1,134 +1,176 @@
-import { Recommendation } from './recommendation';
-import axios from 'axios'
-import { fetchSuccess, like, dislike, incrementView } from '../redux/videoSlice'
-import { format } from 'timeago.js'
-import { subscription } from '../redux/userSlice'
 
-
-const VideoPage=({isSidebarOpen,resetSidebar})=>{
-    const tagsNumber=4.8;
-
-    const { currentUser } = useSelector((state) => state.user);
-    const { currentVideo } = useSelector((state) => state.video);
-    const dispatch = useDispatch();
-    const path = useLocation().pathname.split("/")[2];
-    const [channel, setChannel] = useState({});
-    const imgSrc = channel && channel.img ? channel.img : pfp;
-    useEffect(() => {
-        const fetchData = async () => {
-        try {
-            const videoRes = await axios.get(`/api/videos/find/${path}`);
-            const channelRes = await axios.get(`/api/users/find/${videoRes.data.userId}`);
-            setChannel(channelRes.data);
-            dispatch(fetchSuccess(videoRes.data));
-        } catch (err) {}
-        };
-        fetchData();
-    }, [path, dispatch]);
-
-    const handleLike = async ()=>{
-        await axios.put(`/api/users/like/${currentVideo._id}`)
-        dispatch(like(currentUser._id))
-    }
-    const handleDislike = async ()=>{
-        await axios.put(`/api/users/dislike/${currentVideo._id}`)
-        dispatch(dislike(currentUser._id))
-    }
-
-    const handleSub= async()=>{
-        if(currentUser){
-            currentUser.subscribedUsers.includes(channel._id)?
-            await axios.put(`/api/users/unsub/${channel._id}`):
-            await axios.put(`/api/users/sub/${channel._id}`)
-            dispatch(subscription(channel._id))
-        }
-    }
-
-    const handleView = async ()=>{
-        await axios.put(`/api/videos/view/${currentVideo._id}`)
-        dispatch(incrementView());
-    }
-    useEffect(()=>{
-        handleView();
-    },[currentVideo._id],dispatch)
-
+const SidebarOpen=()=>{
+    const {currentUser} = useSelector(state=>state.user)
+    const [activeItem, setActiveItem] = useState('home');
+    const handleItemClick = (item) => {
+        setActiveItem(item);
+    };
     return(
         <>
-        <div className={`slideSidebar ${isSidebarOpen ? 'slideSidebarOpen' : ''}`}>
-            <SidebarOpen />
-        </div>
-        <div className="videopage">
-            <div className="videopage-helper">
-                <div className="videopage-first">
-                    {/* Video Url */}
-                    <video ref={videoRef} className='mv' src={currentVideo.videoUrl} controls autoPlay={true}></video>
-                    <div className="mv-mobile-view-something">
-                        <h2 className='mv-title'>{currentVideo.title}</h2>
-                        <div className="mv-buttons">
-                            <div className="mv-buttons-first">
-                                <div className='mv-buttons-first-helper'>
-                                    <div className="mv-pfp"><img src={imgSrc} alt="" /></div>
-                                    <div className="mv-channel">
-                                        <div className="mv-channel-name">{channel.name}</div>
-                                        <div className="mv-subs">{channel.subscribers} subscribers</div>
-                                    </div>
-                                </div>
-
-                                {/* Subscribe */}
-                                <div 
-                                    onClick={handleSub} 
-                                    className={
-                                     `mv-subscribe-button ${currentUser && currentUser.subscribedUsers?.includes(channel._id) 
-                                     ? 'mv-subscribe-button-active' : ''}`}
-                                >
-                                    {currentUser && currentUser.subscribedUsers?.includes(channel._id) ? "Subscribed" : "Subscribe"}
-                                </div>
-                            </div>
-                            <div className="mv-buttons-second">
-                                <div className="mv-button">
-
-                                    {/* Like */}
-                                    <div className="mv-like mv-total-like" onClick={handleLike}>
-                                        {currentUser && currentVideo.likes?.includes(currentUser._id)
-                                            ?
-                                                <img className='rotate-like' src={dislikeactive} alt="" /> 
-                                            :
-                                                <img className='rotate-like' src={disliker} alt="" /> 
-                                        }
-                                        <div>{currentVideo.likes?.length}</div>
-                                    </div>
-
-                                    {/* Dislike */}
-                                    <div className="mv-like" onClick={handleDislike}>
-                                        {currentVideo.dislikes?.length >=1 ?
-                                            <div>{currentVideo.dislikes?.length}</div>
-                                         :null}
-                                        {currentUser && currentVideo.dislikes?.includes(currentUser._id)
-                                            ?
-                                                <img src={dislikeactive} alt="" />
-                                            :
-                                                <img src={disliker} alt="" />
-                                        }
-                                    </div>
-                                </div>
-                                <div className="mv-button over-not-hidden">
-                                    <div className="mv-dotser">
-                                        <img src={threedots} alt="" onClick={handleDots} />
-                                        {isDots?(
-                                            <div ref={dotsContainerRef} className="mv-dots-abs">
-                                                {/* Save Button thats add to Watch Later */}
-                                                <div onClick={closeDots} className="mv-dots-menu-unit"><img src={save} alt="" /><span>Save</span></div>
-                                            </div>  
-                                        ):null}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <div className={`sidebar-open`}>
+            <div className="sb-comp">
+                <Link to="/">
+                    <div 
+                        className={`sb-unit ${activeItem==='home' ? 'sb-active':''}`}
+                        onClick={() => handleItemClick('home')}
+                    >   
+                       {activeItem==='home'?(<img src={home} alt="" />):(<img src={homeclose} alt="" />)} 
+                        <span>Home</span>
                     </div>
+                </Link>
+                <div 
+                    className={`sb-unit ${activeItem==='shorts' ? 'sb-active':''}`}
+                    onClick={() => handleItemClick('shorts')}
+                >
+                    {activeItem==='shorts'?(<img src={shortsopen} alt="" />):(<img src={shorts} alt="" />)} 
+                    <span>Shorts</span>
+                </div>
+                
+                {currentUser?(
+                    <Link to="/subscriptions">
+                        <div 
+                            className={`sb-unit ${activeItem==='subs' ? 'sb-active':''}`}
+                            onClick={() => handleItemClick('subs')}
+                        >
+                            {activeItem==='subs'?(<img src={subopen} alt="" />):(<img src={sub} alt="" />)} 
+                            <span>Subscriptions</span>
+                        </div>
+                    </Link>
+                ):null}
+                
+            </div>
+            
+            {currentUser?(<>
+                <div className="sb-comp">
+                    <div className="comp-heading">You</div>
+                    <div 
+                        className={`sb-unit ${activeItem==='yourchannel' ? 'sb-active':''}`}
+                        onClick={() => handleItemClick('yourchannel')}
+                    >
+                        {activeItem==='yourchannel'?(<img src={yourchannelopen} alt="" />):(<img src={yourchannel} alt="" />)} 
+                        <span>Your channel</span>
+                    </div>
+                    <div 
+                        className={`sb-unit ${activeItem==='history' ? 'sb-active':''}`}
+                        onClick={() => handleItemClick('history')}
+                    >
+                        {activeItem==='history'?(<img src={historyopen} alt="" />):(<img src={history} alt="" />)} 
+                        <span>History</span>
+                    </div>
+
+                    <Link to="/yourvids">
+                        <div 
+                            className={`sb-unit ${activeItem==='yourvideo' ? 'sb-active':''}`}
+                            onClick={() => handleItemClick('yourvideo')}
+                        >
+                            {activeItem==='yourvideo'?(<img src={yourvideoopen} alt="" />):(<img src={yourvideo} alt="" />)} 
+                            <span>Your videos</span>
+                        </div>
+                    </Link>
+                    
+                    <Link to="/watchlater">
+                        <div 
+                            className={`sb-unit ${activeItem==='watchlater' ? 'sb-active':''}`}
+                            onClick={() => handleItemClick('watchlater')}
+                        >
+                            {activeItem==='watchlater'?(<img src={watchlateropen} alt="" />):(<img src={watchlater} alt="" />)} 
+                            <span>Watch Later</span>
+                        </div>
+                    </Link>
+                </div>
+            </>
+            ):(
+                <>
+                <div className="sb-comp">
+                    <SignInButton />
+                </div>
+                </>
+                
+            )}
+            <div className="sb-comp">
+                <div className="comp-heading">Explore</div>
+
+                
+                <Link to="/trends">
+                <div 
+                    className={`sb-unit ${activeItem==='trends' ? 'sb-active':''}`}
+                    onClick={() => handleItemClick('trends')}
+                >
+                    {activeItem==='trends'?(<img src={trendingopen} alt="" />):(<img src={trending} alt="" />)} 
+                    <span>Trending</span>
+                </div>
+                </Link>
+
+                <div 
+                    className={`sb-unit ${activeItem==='music' ? 'sb-active':''}`}
+                    onClick={() => handleItemClick('music')}
+                >
+                    {activeItem==='music'?(<img src={musicopen} alt="" />):(<img src={music} alt="" />)} 
+                    <span>Music</span>
+                </div>
+                <div 
+                    className={`sb-unit ${activeItem==='gaming' ? 'sb-active':''}`}
+                    onClick={() => handleItemClick('gaming')}
+                >
+                    {activeItem==='gaming'?(<img src={gamingopen} alt="" />):(<img src={gaming} alt="" />)} 
+                    <span>Gaming</span>
+                </div>
+                <div 
+                    className={`sb-unit ${activeItem==='news' ? 'sb-active':''}`}
+                    onClick={() => handleItemClick('news')}
+                >  
+                    {activeItem==='news'?(<img src={newsopen} alt="" />):(<img src={news} alt="" />)} 
+                    <span>News</span>
+                </div>
+                <div 
+                    className={`sb-unit ${activeItem==='sports' ? 'sb-active':''}`}
+                    onClick={() => handleItemClick('sports')}
+                >
+                    {activeItem==='sports'?(<img src={sportopen} alt="" />):(<img src={sport} alt="" />)} 
+                    <span>Sports</span>
+                </div>
+            </div>
+            <div className="sb-comp">
+                <div 
+                    className={`sb-unit ${activeItem==='browse' ? 'sb-active':''}`}
+                    onClick={() => handleItemClick('browse')}
+                >
+                    {activeItem==='browse'?(<img src={browseopen} alt="" />):(<img src={browse} alt="" />)} 
+                    <span className='sb-browse'>Browse channels</span>
+                </div>
+            </div>
+            <div className="sb-comp">
+                <div 
+                    className={`sb-unit ${activeItem==='settings' ? 'sb-active':''}`}
+                    onClick={() => handleItemClick('settings')}
+                >
+                    <img src={setting} alt="" />
+                    <span>Settings</span>
+                </div>
+                <div 
+                    className={`sb-unit ${activeItem==='reportHistory' ? 'sb-active':''}`}
+                    onClick={() => handleItemClick('reportHistory')}
+                >
+                    {activeItem==='reportHistory'?(<img src={reporthistoryopen} alt="" />):(<img src={reporthistory} alt="" />)} 
+                    <span>Report History</span>
+                </div>
+                <div 
+                    className={`sb-unit ${activeItem==='help' ? 'sb-active':''}`}
+                    onClick={() => handleItemClick('help')}
+                >
+                    <img src={help} alt="" />
+                    <span>Help</span>
+                </div>
+                <div 
+                    className={`sb-unit ${activeItem==='sendFeedback' ? 'sb-active':''}`}
+                    onClick={() => handleItemClick('sendFeedback')}
+                >
+                    <img src={sendfeedback} alt="" />
+                    <span>Send feedback</span>
                 </div>
             </div>
         </div>
         </>
     )
 }
-export default VideoPage;
+export default SidebarOpen;

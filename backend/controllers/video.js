@@ -57,6 +57,18 @@ export const getVideo = async (req, res, next) => {
   }
 };
 
+
+export const yourvids = async (req, res, next) => {
+  try {
+    const userVideos = await Video.find({ userId: req.user.id });
+    const sortedVideos = userVideos.sort((a, b) => b.createdAt - a.createdAt);
+    res.status(200).json(sortedVideos);
+  } catch (err) {
+    next(err);
+  }
+};
+
+
 // videoController.js
 export const addView = async (req, res, next) => {
   try {

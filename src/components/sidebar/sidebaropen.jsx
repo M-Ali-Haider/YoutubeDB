@@ -4,7 +4,7 @@ import shortsopen from '../../assets/images/shortsopen.svg'
 import home from '../../assets/images/home.svg'
 import homeclose from '../../assets/images/homeclose.svg'
 import SignInButton from '../signIn/signInButton'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import sub from '../../assets/images/subs.svg'
@@ -29,15 +29,11 @@ import sport from '../../assets/images/sport.svg'
 import sportopen from '../../assets/images/sportopen.svg'
 import browse from '../../assets/images/browse.svg'
 import browseopen from '../../assets/images/browseopen.svg'
-
-
 import reporthistory from '../../assets/images/reporthistory.svg'
 import reporthistoryopen from '../../assets/images/reporthistoryopen.svg'
-
 import setting from '../../assets/images/setting.svg'
 import help from '../../assets/images/help.svg'
 import sendfeedback from '../../assets/images/sendfeedback.svg'
-
 
 const SidebarOpen=()=>{
     const {currentUser} = useSelector(state=>state.user)
@@ -45,6 +41,10 @@ const SidebarOpen=()=>{
     const handleItemClick = (item) => {
         setActiveItem(item);
     };
+
+    const path = useLocation().pathname.split("/")[2];
+    // console.log(path);
+
     return(
         <>
         <div className={`sidebar-open`}>
@@ -66,16 +66,17 @@ const SidebarOpen=()=>{
                     <span>Shorts</span>
                 </div>
                 
-                <Link to="/subscriptions">
-                <div 
-                    className={`sb-unit ${activeItem==='subs' ? 'sb-active':''}`}
-                    onClick={() => handleItemClick('subs')}
-                >
-                    {activeItem==='subs'?(<img src={subopen} alt="" />):(<img src={sub} alt="" />)} 
-                    <span>Subscriptions</span>
-                </div>
-                </Link>
-                
+                {currentUser?(
+                    <Link to="/subscriptions">
+                        <div 
+                            className={`sb-unit ${activeItem==='subs' ? 'sb-active':''}`}
+                            onClick={() => handleItemClick('subs')}
+                        >
+                            {activeItem==='subs'?(<img src={subopen} alt="" />):(<img src={sub} alt="" />)} 
+                            <span>Subscriptions</span>
+                        </div>
+                    </Link>
+                ):null}
                 
             </div>
             
@@ -96,13 +97,17 @@ const SidebarOpen=()=>{
                         {activeItem==='history'?(<img src={historyopen} alt="" />):(<img src={history} alt="" />)} 
                         <span>History</span>
                     </div>
-                    <div 
-                        className={`sb-unit ${activeItem==='yourvideo' ? 'sb-active':''}`}
-                        onClick={() => handleItemClick('yourvideo')}
-                    >
-                        {activeItem==='yourvideo'?(<img src={yourvideoopen} alt="" />):(<img src={yourvideo} alt="" />)} 
-                        <span>Your videos</span>
-                    </div>
+
+                    <Link to="/yourvids">
+                        <div 
+                            className={`sb-unit ${activeItem==='yourvideo' ? 'sb-active':''}`}
+                            onClick={() => handleItemClick('yourvideo')}
+                        >
+                            {activeItem==='yourvideo'?(<img src={yourvideoopen} alt="" />):(<img src={yourvideo} alt="" />)} 
+                            <span>Your videos</span>
+                        </div>
+                    </Link>
+                    
                     <Link to="/watchlater">
                         <div 
                             className={`sb-unit ${activeItem==='watchlater' ? 'sb-active':''}`}

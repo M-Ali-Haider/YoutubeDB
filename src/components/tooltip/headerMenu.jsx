@@ -5,15 +5,18 @@ import { useDispatch } from 'react-redux'
 import { logout } from '../../redux/userSlice'
 import pfp from "../../assets/images/pfp.webp"
 import React, { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 
 const HeaderMenu = ({currentUser,closeHM})=>{
 
+    const navigate=useNavigate();
 
     const imgSrc = currentUser.img || pfp;
     const dispatch = useDispatch();
     const signOut = ()=>{
         dispatch(logout())
+        navigate('/')
     }
 
 
