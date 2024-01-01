@@ -87,7 +87,7 @@ const SidebarOpen=()=>{
                         onClick={() => handleItemClick('yourchannel')}
                     >
                         {activeItem==='yourchannel'?(<img src={yourchannelopen} alt="" />):(<img src={yourchannel} alt="" />)} 
-                        <span>Your Channel</span>
+                        <span>Your channel</span>
                     </div>
                     <div 
                         className={`sb-unit ${activeItem==='history' ? 'sb-active':''}`}
@@ -103,13 +103,15 @@ const SidebarOpen=()=>{
                         {activeItem==='yourvideo'?(<img src={yourvideoopen} alt="" />):(<img src={yourvideo} alt="" />)} 
                         <span>Your videos</span>
                     </div>
-                    <div 
-                        className={`sb-unit ${activeItem==='watchlater' ? 'sb-active':''}`}
-                        onClick={() => handleItemClick('watchlater')}
-                    >
-                        {activeItem==='watchlater'?(<img src={watchlateropen} alt="" />):(<img src={watchlater} alt="" />)} 
-                        <span>Watch Later</span>
-                    </div>
+                    <Link to="/watchlater">
+                        <div 
+                            className={`sb-unit ${activeItem==='watchlater' ? 'sb-active':''}`}
+                            onClick={() => handleItemClick('watchlater')}
+                        >
+                            {activeItem==='watchlater'?(<img src={watchlateropen} alt="" />):(<img src={watchlater} alt="" />)} 
+                            <span>Watch Later</span>
+                        </div>
+                    </Link>
                 </div>
             </>
             ):(

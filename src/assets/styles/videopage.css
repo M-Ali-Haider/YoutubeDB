@@ -123,6 +123,10 @@
     overflow: hidden;
     background-color: rgba(0,0,0,0.05);
 }
+
+.over-not-hidden{
+    overflow: visible;
+}
 .rotate-like{
     transform: rotate(180deg);
 }
@@ -135,12 +139,52 @@
     border-radius: 50%;
     cursor: pointer;
     transition: 0.25s ease;
+    position: relative;
 }
 .mv-dots:hover{
     background-color: rgba(0,0,0,0.1);
 }
 .mv-dots:active{
     background-color: rgba(0,0,0,0.15);
+}
+.mv-dotser{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.25s ease;
+    position: relative;
+}
+.mv-dots-menu-unit{
+    height: 50px;
+    min-width:fit-content;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    gap: 10px;
+}
+.mv-dots-menu-unit span{
+    min-width:max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.mv-dots-menu-unit:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+.mv-dots-abs{
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    min-width: 124px;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    overflow: hidden;
 }
 .mv-like{
     display: flex;

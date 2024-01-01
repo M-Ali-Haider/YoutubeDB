@@ -26,7 +26,11 @@ const UserSchema = new mongoose.Schema({
     fromGoogle:{
         type:Boolean,
         default:false,
-    }
+    },
+    watchLater: {
+        type: [String],
+        default:[],
+    },
 },{timestamps:true})
 
 export default mongoose.model("User",UserSchema)

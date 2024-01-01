@@ -38,10 +38,22 @@ export const userSlice = createSlice({
         state.currentUser.subscribedUsers.push(action.payload);
       }
     },
+    watchlater: (state, action) => {
+      if (state.currentUser.watchLater.includes(action.payload)) {
+        state.currentUser.watchLater.splice(
+          state.currentUser.watchLater.findIndex(
+            (channelId) => channelId === action.payload
+          ),
+          1
+        );
+      } else {
+        state.currentUser.watchLater.push(action.payload);
+      }
+    },
   },
 });
 
-export const { loginStart, loginSuccess, loginFailure, logout, subscription } =
+export const { loginStart, loginSuccess, loginFailure, logout, subscription,watchlater } =
   userSlice.actions;
 
 export default userSlice.reducer;

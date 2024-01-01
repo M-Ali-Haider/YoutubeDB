@@ -110,6 +110,19 @@ export const sub = async (req, res, next) => {
   }
 };
 
+export const watch = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user.id);
+    const watchLaterVideos = user.watchLater;
+    const videos = await Video.find({ _id: { $in: watchLaterVideos } });
+    // const sortedVideos = videos.sort((a, b) => b.createdAt - a.createdAt);
+    res.status(200).json(videos);
+  } catch (err) {
+    next(err);
+  }
+};
+
+
 export const getByTag = async (req, res, next) => {
   const tags = req.query.tags.split(",");
   try {
@@ -131,3 +144,5 @@ export const getBySearch = async (req, res, next) => {
     next(err);
   }
 };
+
+

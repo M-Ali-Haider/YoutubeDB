@@ -102,3 +102,30 @@ export const dislike = async (req, res, next) => {
     next(err);
   }
 };
+
+export const addWatch=async(req,res,next)=>{
+  try {
+    await User.findByIdAndUpdate(req.user.id,{
+      $addToSet:{watchLater:req.params.videoId}
+    })
+    res.status(200).json("Addeded WatchLater UserID: "+req.user.id+" VideoId: "+req.params.videoId )
+    
+  } catch (err) {
+    next(err)
+  }
+}
+export const removeWatch=async(req,res,next)=>{
+  const id = req.user.id;
+  const videoId = req.params.videoId;
+  try {
+
+    await User.findByIdAndUpdate(id,{
+      $pull:{watchLater:videoId}
+    })
+    res.status(200).json("Removed from WatchLater Successful!")
+    
+  } catch (err) {
+    next(err)
+  }
+}
+
