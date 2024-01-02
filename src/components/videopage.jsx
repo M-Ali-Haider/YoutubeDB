@@ -24,7 +24,7 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
 
     const tagsNumber=4.8;
     const { currentUser } = useSelector((state) => state.user);
-    // const { currentVideo } = useSelector((state) => state.video);
+    const { currentVideo } = useSelector((state) => state.video);
 
     const [video,setVideo]=useState({});
     
@@ -45,14 +45,16 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
         fetchData();
     }, [path, dispatch]);
 
+    currentVideo?console.log(currentVideo._id):console.log('The Bug is Back')
+
     const handleLike = async ()=>{
-        // await axios.put(`/api/users/like/${currentVideo._id}`)
-        await axios.put(`/api/users/like/${video._id}`)
+        await axios.put(`/api/users/like/${currentVideo._id}`)
+        // await axios.put(`/api/users/like/${video._id}`)
         dispatch(like(currentUser._id))
     }
     const handleDislike = async ()=>{
-        // await axios.put(`/api/users/dislike/${currentVideo._id}`)
-        await axios.put(`/api/users/dislike/${video._id}`)
+        await axios.put(`/api/users/dislike/${currentVideo._id}`)
+        // await axios.put(`/api/users/dislike/${video._id}`)
         dispatch(dislike(currentUser._id))
     }
 
@@ -65,14 +67,14 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
         }
     }
     const handleView = async ()=>{
-        // await axios.put(`/api/videos/view/${currentVideo._id}`)
-        await axios.put(`/api/videos/view/${video._id}`)
+        await axios.put(`/api/videos/view/${currentVideo._id}`)
+        // await axios.put(`/api/videos/view/${video._id}`)
         dispatch(incrementView());
     }
     useEffect(()=>{
         handleView();
-    // },[currentVideo._id],dispatch)
-    },[video._id],dispatch)
+    },[currentVideo._id],dispatch)
+    // },[video._id],dispatch)
     // Dots Functionality
     const [isDots,setDots]=useState(false);
     const dotsContainerRef = useRef(null);
@@ -101,23 +103,20 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
     }, []);
     const handleWatchLater= async()=>{
         if(currentUser){
-            // currentUser.watchLater.includes(currentVideo._id)?
-            currentUser.watchLater.includes(video._id)?
-            // await axios.put(`/api/users/watchlater/remove/${currentVideo._id}`):
-            await axios.put(`/api/users/watchlater/remove/${videoideo._id}`):
-            // await axios.put(`/api/users/watchlater/add/${currentVideo._id}`)
-            await axios.put(`/api/users/watchlater/add/${videoideo._id}`)
-            // dispatch(watchlater(currentVideo._id));
-            dispatch(watchlater(videoideo._id));
+            currentUser.watchLater.includes(currentVideo._id)?
+            // currentUser.watchLater.includes(video._id)?
+            await axios.put(`/api/users/watchlater/remove/${currentVideo._id}`):
+            // await axios.put(`/api/users/watchlater/remove/${videoideo._id}`):
+            await axios.put(`/api/users/watchlater/add/${currentVideo._id}`)
+            // await axios.put(`/api/users/watchlater/add/${videoideo._id}`)
+            dispatch(watchlater(currentVideo._id));
+            // dispatch(watchlater(videoideo._id));
         }
     }
     const majorDots=()=>{
         handleWatchLater()
         closeDots()
     }
-    
-    
-
     return(
         <>
         <div className={`slideSidebar ${isSidebarOpen ? 'slideSidebarOpen' : ''}`}>
@@ -155,26 +154,26 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
 
                                     {/* Like */}
                                     <div className="mv-like mv-total-like" onClick={handleLike}>
-                                        {currentUser && video.likes?.includes(currentUser._id)
-                                        // {currentUser && currentVideo.likes?.includes(currentUser._id)
+                                        {/* {currentUser && video.likes?.includes(currentUser._id) */}
+                                        {currentUser && currentVideo.likes?.includes(currentUser._id)
                                             ?
                                                 <img className='rotate-like' src={dislikeactive} alt="" /> 
                                             :
                                                 <img className='rotate-like' src={disliker} alt="" /> 
                                         }
-                                        <div>{video.likes?.length}</div>
-                                        {/* <div>{currentVideo.likes?.length}</div> */}
+                                        {/* <div>{video.likes?.length}</div> */}
+                                        <div>{currentVideo.likes?.length}</div>
                                     </div>
 
                                     {/* Dislike */}
                                     <div className="mv-like" onClick={handleDislike}>
-                                        {/* {currentVideo.dislikes?.length >=1 ? */}
-                                        {video.dislikes?.length >=1 ?
-                                            <div>{video.dislikes?.length}</div>
-                                            // <div>{currentVideo.dislikes?.length}</div>
+                                        {currentVideo.dislikes?.length >=1 ?
+                                        // {video.dislikes?.length >=1 ?
+                                            // <div>{video.dislikes?.length}</div>
+                                            <div>{currentVideo.dislikes?.length}</div>
                                          :null}
-                                        {currentUser && video.dislikes?.includes(currentUser._id)
-                                        // {currentUser && currentVideo.dislikes?.includes(currentUser._id)
+                                        {/* {currentUser && video.dislikes?.includes(currentUser._id) */}
+                                        {currentUser && currentVideo.dislikes?.includes(currentUser._id)
                                             ?
                                                 <img src={dislikeactive} alt="" />
                                             :
@@ -202,8 +201,8 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
                                                 <div ref={dotsContainerRef} className="mv-dots-abs">
                                                     <div onClick={majorDots} className="mv-dots-menu-unit">
                                                         <img src={save} alt="" />
-                                                        {/* <span>{currentUser && currentUser.watchLater.includes(currentVideo._id)?"Remove from Watch Later":"Save"}</span> */}
-                                                        <span>{currentUser && currentUser.watchLater.includes(video._id)?"Remove from Watch Later":"Save"}</span>
+                                                        <span>{currentUser && currentUser.watchLater.includes(currentVideo._id)?"Remove from Watch Later":"Save"}</span>
+                                                        {/* <span>{currentUser && currentUser.watchLater.includes(video._id)?"Remove from Watch Later":"Save"}</span> */}
                                                     </div>
                                                 </div>  
                                             ):null}
@@ -225,8 +224,8 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
                             </p>
                         </div>
                         <div className="mv-comments">
-                            {/* <CommentSection videoId={currentVideo._id}/> */}
-                            <CommentSection videoId={video._id}/>
+                            <CommentSection videoId={currentVideo._id}/>
+                            {/* <CommentSection videoId={video._id}/> */}
                         </div>
                     </div>
                 </div>
