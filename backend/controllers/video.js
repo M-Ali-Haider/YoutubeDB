@@ -172,7 +172,6 @@ export const getBySearch = async (req, res, next) => {
         { title: { $regex: query, $options: "i" } },
         { tags: { $regex: query, $options: "i" } },
         { desc: { $regex: query, $options: "i" } },
-        // Add more criteria as needed, e.g., { otherField: { $regex: query, $options: "i" } },
         {
           userId: {
             $in: await User.find({
@@ -216,3 +215,32 @@ export const getUserVideos = async (req, res, next) => {
   }
 };
 
+
+export const getWatchLaterAndLikedVideos = async (userId) => {
+  try {
+    // Find the user by ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return { success: false, message: "User not found" };
+    }
+
+    // Get the user's watch later videos
+    const watchLaterVideos = await Video.find({ _id: { $in: user.watchLater } });
+
+    // Get the videos liked by the user
+    const likedVideos = await Video.find({ likes: userId });
+
+    // Combine watch later and liked videos and remove duplicates
+    const combinedVideos = [...watchLaterVideos, ...likedVideos].reduce((acc, video) => {
+      if (!acc.find((v) => v._id.equals(video._id))) {
+        acc.push(video);
+      }
+      return acc;
+    }, []);
+
+    return { success: true, videos: combinedVideos };
+  } catch (error) {
+    return { success: false, message: error.message };
+  }
+};

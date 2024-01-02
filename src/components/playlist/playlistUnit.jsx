@@ -1,18 +1,27 @@
-import pfp from '../../assets/images/pfp.jpeg'
-const PlaylistUnit=()=>{
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+const PlaylistUnit=({video})=>{
+    const [channel,setChannel]=useState('')
+    useEffect(()=>{
+        const fetchChannel = async ()=>{
+            const res = await axios.get(`/api/users/find/${video.userId}`)
+            setChannel(res.data)
+        }
+        fetchChannel()
+    },[video.userId])
     return(
         <>
         <div className="playlist-unit">
             <div className="playlist-image-div">
-                <img src={pfp} alt="" />
+                <img src={video.imgUrl} alt="" />
             </div>
             <div className="rv-details">
                 <div className="rv-pfp">
-                    <img src={pfp} alt="" />
+                    <img src={channel.img} alt="" />
                 </div>
                 <div className="rv-rest">
-                    <div className="rv-title">Learning React by Making YouTube Replica</div>
-                    <div className="rv-author">Omer Farooq</div>
+                    <div className="rv-title">{video.title}</div>
+                    <div className="rv-author">{channel.name}</div>
                 </div>
             </div>
         </div>

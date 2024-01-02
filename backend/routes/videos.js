@@ -1,5 +1,5 @@
 import express from "express";
-import { getByRVTag,getTags,getUserVideos,addVideo, addView, getVideoCountByUser ,getBySearch, getByTag, yourvids, getVideo, random, sub, trend, watch } from "../controllers/video.js";
+import { getWatchLaterAndLikedVideos,getByRVTag,getTags,getUserVideos,addVideo, addView, getVideoCountByUser ,getBySearch, getByTag, yourvids, getVideo, random, sub, trend, watch } from "../controllers/video.js";
 import { verifyToken } from "../verifyToken.js";
 
 const router = express.Router();
@@ -23,5 +23,16 @@ router.get('/count/:userId', getVideoCountByUser);
 router.get("/tags", getTags);
 router.get("/tags/:tag", getByTag);
 
+router.get("/cv/:userId", async (req, res) => {
+    const userId = req.params.userId;
+  
+    const result = await getWatchLaterAndLikedVideos(userId);
+  
+    if (result.success) {
+      res.json(result.videos);
+    } else {
+      res.status(400).json({ error: result.message });
+    }
+  });
 
 export default router;

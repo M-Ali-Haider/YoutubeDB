@@ -61,6 +61,11 @@
     font-weight: 500;
     font-size: 16px;
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
 }
 .vid-info-er{
     width: 100%;
