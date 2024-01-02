@@ -39,7 +39,7 @@ const Comment=({comment})=>{
                         </div>
                         <div className="cu-dislike"><img src={like} alt="" /></div>
                     </div>
-                    <div className="cu-reply">Reply</div>
+                    {/* <div className="cu-reply">Reply</div> */}
                 </div>
             </div>
         </div>

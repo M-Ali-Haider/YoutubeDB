@@ -174,3 +174,6 @@
 .cu-reply:active{
     background-color: rgba(0,0,0,0.2);
 }
+.display-none{
+    display: none;
+}

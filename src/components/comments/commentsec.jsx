@@ -42,14 +42,16 @@ const CommentSection=({videoId})=>{
                     <span>Sort by</span>
                 </div>
             </div>
-            <div className="comments-add-container">
-                <div className="comment-pfp">
-                    <img src={imgSrc} alt="" />
+            {currentUser?(
+                <>
+                <div className="comments-add-container">
+                    <div className="comment-pfp">
+                        <img src={imgSrc} alt="" />
+                    </div>
+                    <PostComment videoId={videoId} onCommentSubmit={handleCommentSubmit}/>
                 </div>
-
-                <PostComment videoId={videoId} onCommentSubmit={handleCommentSubmit}/>
-
-            </div>
+                </>
+            ):null}
             <div className="display-comments">
                 {comments.map(comment=>(
                     <Comment key={comment._id} comment={comment}/>

@@ -23,8 +23,8 @@ const PostComment = ({videoId, onCommentSubmit}) => {
   };
 
   return (
-    <form action="" className="comment-form">
-      <input className="add-a-comment" type="text" placeholder="Add a comment" onFocus={appearCommentBtn} value={commentText} onChange={handleChange}
+    <form action="" className={`comment-form`}>
+      <input className={`add-a-comment`} type="text" placeholder="Add a comment" onFocus={appearCommentBtn} value={commentText} onChange={handleChange}
       />
       {isCommentOptionAppear ? (
         <>
