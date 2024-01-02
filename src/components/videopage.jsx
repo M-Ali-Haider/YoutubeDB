@@ -85,12 +85,12 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
 
                     <Recommendation tags={video.tags} resetSidebar={resetSidebar}/>
                     
-                    <div className="vs-shorts-box">
+                    {/* <div className="vs-shorts-box">
                         <h3 className='shorts-vs-grid-heading'>Shorts</h3>
                         <div className="shorts-vs-grid">
                             <ShortsVP/>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

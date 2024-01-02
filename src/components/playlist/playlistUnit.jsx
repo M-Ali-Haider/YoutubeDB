@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 const PlaylistUnit=({video})=>{
     const [channel,setChannel]=useState('')
     useEffect(()=>{
@@ -11,7 +12,7 @@ const PlaylistUnit=({video})=>{
     },[video.userId])
     return(
         <>
-        <div className="playlist-unit">
+        <Link to={`/video/${video._id}`} className="playlist-unit">
             <div className="playlist-image-div">
                 <img src={video.imgUrl} alt="" />
             </div>
@@ -24,7 +25,7 @@ const PlaylistUnit=({video})=>{
                     <div className="rv-author">{channel.name}</div>
                 </div>
             </div>
-        </div>
+        </Link>
         </>
     )
 }
