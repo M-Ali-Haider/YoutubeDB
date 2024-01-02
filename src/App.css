@@ -114,15 +114,6 @@
         padding: 0px;
         margin: 0px;
     }
-    .grid a{
-        flex: none;
-        max-height: auto;
-        min-height: auto;
-        height: 350px;
-        max-width: 100%;
-        min-width: 100%;
-        margin: 0px;
-    }
     .video{
         max-width: 100%;
         width: 100%;
@@ -192,5 +183,75 @@
     .grid-mobile-short-row{
         width: 98%;
         gap: 8px;
+    }
+    .grid{
+        margin: 0;
+    }
+    .grid .video{
+        width: 100%;
+        max-width: none;
+        margin:0px;
+        min-height: 300px;
+    }
+    .video-helper{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width:100%;
+    }
+    .video-link{
+        width: 100%;
+        height: 70%!important;
+    }
+    .vid-details{
+        height: 30%;
+        width: 100%;
+    }
+    .vid-info{
+        height: 100%;
+        padding: 0;
+        padding-top: 5px;
+        padding-left: 5px;
+    } 
+    .vid-info-er{
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        padding-bottom: 10px;
+    }
+    .vid-author-div{
+        gap: 2.5px;
+    }
+    .playlist-unit{
+        border: 1px solid rgba(0,0,0,0.3);
+        padding: 0;
+    }
+    .rv-details .rv-pfp{
+        display: none;
+    }
+    .rv-image-div{
+        width: 100%;
+        max-width: none;
+    }
+    .rv-details{
+        padding-left: 20px;
+    }
+    .channel-page{
+       left: 0;
+       padding-left: 0px;
+       position: relative;
+    }   
+    .channel-pfp img{
+        width: 80px;
+        height: 80px;
+    }
+    .channel-info{
+        flex-direction: column;
+    }
+    .channel-vids-grid{
+        padding: 0;
+    }
+    .channel-name{
+        font-size: 24px;
     }
 }
