@@ -11,6 +11,7 @@ const Homepage=({subout,tagsPage,channelPage,searchPage,signPage,type,isSidebarO
         <Sidebar
             isSignedIn={isSignedIn}
             isSidebarOpen={isSidebarOpen}
+            resetSidebar={resetSidebar}
         />
         {subout?(
             <Subout />

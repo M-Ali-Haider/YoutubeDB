@@ -35,7 +35,7 @@ import setting from '../../assets/images/setting.svg'
 import help from '../../assets/images/help.svg'
 import sendfeedback from '../../assets/images/sendfeedback.svg'
 
-const SidebarOpen=()=>{
+const SidebarOpen=({resetSidebar})=>{
     const {currentUser} = useSelector(state=>state.user)
     const [activeItem, setActiveItem] = useState('home');
     const handleItemClick = (item) => {
@@ -83,7 +83,7 @@ const SidebarOpen=()=>{
             {currentUser?(<>
                 <div className="sb-comp">
                     <div className="comp-heading">You</div>
-                    <Link to={`/channel/${currentUser._id}`}>
+                    <Link onClick={resetSidebar} to={`/channel/${currentUser._id}`}>
                         <div 
                             className={`sb-unit ${activeItem==='yourchannel' ? 'sb-active':''}`}
                             onClick={() => handleItemClick('yourchannel')}

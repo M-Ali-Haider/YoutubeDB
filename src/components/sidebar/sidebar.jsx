@@ -11,13 +11,13 @@ import yourvideoopen from '../../assets/images/yourvideoopen.svg'
 
 import SidebarOpen from './sidebaropen'
 import SidebarClose from './sidebarclose'
-const Sidebar=({isSidebarOpen})=>{
+const Sidebar=({isSidebarOpen,resetSidebar})=>{
     return(
         <>
         <div className={`sidebar ${isSidebarOpen ? 'sidebar-extended' : ''}`}>
             
             {isSidebarOpen ? (
-                <SidebarOpen/>
+                <SidebarOpen resetSidebar={resetSidebar}/>
             ) : (
                 <SidebarClose   home={home} shorts={shorts} subs={subs} you={you} homeclose={homeclose} subopen={subopen} youclose={yourvideoopen}  />
             )}

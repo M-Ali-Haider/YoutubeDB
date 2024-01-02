@@ -1,12 +1,13 @@
 import { useLocation } from 'react-router-dom'
-import '../assets/styles/channel.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import GridVideo from './grid/gridVideo'
 import you from '../assets/images/yourvideoopen.svg'
 import SignInButton from './signIn/signInButton'
 import { useSelector } from 'react-redux'
+import '../assets/styles/channel.css'
 const Channel = ({isSidebarOpen,resetSidebar})=>{
+    console.log('Sidebar Status: '+isSidebarOpen)
 
     const { currentUser } = useSelector((state) => state.user);
 

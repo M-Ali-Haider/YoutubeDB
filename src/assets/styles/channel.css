@@ -6,8 +6,10 @@
     left: 90px;
     transition: all 0.5s ease;
     overflow: scroll;
-    overflow-x:hidden;
     padding-left: 20px;
+}
+.channel-page-sidebar{
+    left: 224px;
 }
 .channel-page-logged-out{
     display: flex;
@@ -26,9 +28,7 @@
     height: 34.4px;
 }
 
-.channel-page-sidebar{
-    left: 224px;
-}
+
 .vid-dot{
     height: 2px;
     width: 2.5px;
