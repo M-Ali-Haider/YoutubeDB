@@ -15,10 +15,19 @@ const Search =({resetSidebar})=>{
     },[query])
     return(
         <>
-        <div className="searchpage">
-            {videos.map(video=>(
-                <SU key={video._id} video={video} resetSidebar={resetSidebar}/>
-            ))}
+        <div className={`searchpage ${videos.length===0?'no-results':''}`}>
+            {videos.length===0?(
+                <>
+                    No Search Results
+                </>
+            ):(
+                <>
+                {videos.map(video=>(
+                    <SU key={video._id} video={video} resetSidebar={resetSidebar}/>
+                ))}
+                </>
+            )}
+            
         </div>
         </>
     )

@@ -5,6 +5,11 @@
     width: 100%;
     gap: 5px;
 }
+.no-results{
+    padding-top: 50px;
+    align-items: center;
+    justify-content: center;
+}
 .vid-dot{
     height: 2px;
     width: 2.5px;

@@ -86,9 +86,18 @@ const Upload=({closeUpload})=>{
                         <label>Video:</label>
                         {videoPerc>0 ? ("Uploading: "+videoPerc+"%"):<input type="file" accept='video/*' onChange={e=>setVideo(e.target.files[0])}/>}
                     </div>
-                    <input type="text" placeholder='Title' name='title' onChange={handleChange}/>
-                    <textarea rows="8" placeholder='Description' name='desc' onChange={handleChange}></textarea>
-                    <input type="text" placeholder='Seperate tags with commas.' onChange={handleTags} />
+                    <div className="upload-unit">
+                        <label>Title:</label>
+                        <input type="text" placeholder='Title' name='title' onChange={handleChange}/>
+                    </div>
+                    <div className="upload-unit">
+                        <label>Description:</label>
+                        <textarea rows="8" placeholder='Description' name='desc' onChange={handleChange}></textarea>
+                    </div>
+                    <div className="upload-unit">
+                        <label>Tags:</label>
+                        <input type="text" placeholder='Seperate tags with commas.' onChange={handleTags} />
+                    </div>
                     <div className='upload-unit'>
                         <label>Image:</label>
                         {imgPerc>0 ?("Uploading: "+imgPerc+"%"):<input type="file" accept='image/*' onChange={e=>setImg(e.target.files[0])} />}
