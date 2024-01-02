@@ -7,16 +7,18 @@ const Playlist=()=>{
 
     const { currentUser } = useSelector((state) => state.user);
     const [videos,setVideos]=useState([])
-    useEffect(()=>{
-        const fetchMix= async()=>{
-            try{
-                const res= await axios.get(`/api/videos/cv/${currentUser._id}`)
-                setVideos(res.data);
+    if(currentUser){
+        useEffect(()=>{
+            const fetchMix= async()=>{
+                try{
+                    const res= await axios.get(`/api/videos/cv/${currentUser._id}`)
+                    setVideos(res.data);
+                }
+                catch(err){console.log("Error in fetching Mix")}
             }
-            catch(err){console.log("Error in fetching Mix")}
-        }
-        fetchMix()
-    },[currentUser._id])
+            fetchMix()
+        },[currentUser._id])
+    }
 
     return(
         <>
