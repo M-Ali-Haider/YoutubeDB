@@ -1,0 +1,22 @@
+.channel-page{
+    position: fixed;
+    top: 65px;
+    right: 0;
+    bottom: 0;
+    left: 90px;
+    transition: all 0.5s ease;
+    overflow: scroll;
+    overflow-x:hidden;
+    padding-left: 20px;
+}
+.channel-page-logged-out{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.cplo-img{
+    height: 120px;
+    width: 120px;
+}

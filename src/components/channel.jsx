@@ -3,12 +3,31 @@ import '../assets/styles/channel.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import GridVideo from './grid/gridVideo'
+import you from '../assets/images/yourvideoopen.svg'
+import SignInButton from './signIn/signInButton'
+import { useSelector } from 'react-redux'
 const Channel = ({isSidebarOpen,resetSidebar})=>{
+
+    const { currentUser } = useSelector((state) => state.user);
+
+    if(!currentUser){
+        return(
+            <>
+            <div className="channel-page channel-page-logged-out">
+                    <img className='cplo-img' src={you} alt="" />
+                    <h1>Enjoy your favorite videos</h1>
+                    <p>Sign in to access videos that you’ve liked or saved</p>
+                    <SignInButton />
+            </div>
+            </>
+        )
+    }
 
     const path=useLocation().pathname.split("/")[2]
     const [user,setUser]=useState({})
     const [totalVideos,setTotalVideos]=useState({})
     const [videos,setVideos]=useState([])
+
 
     useEffect(()=>{
         const fetchData = async ()=>{
@@ -17,7 +36,7 @@ const Channel = ({isSidebarOpen,resetSidebar})=>{
                 setUser(res.data)
                 const rese = await axios.get(`/api/videos/count/${path}`)
                 setTotalVideos(rese.data)
-                const videos = await axios.get(`/api/videos//getvideo/${path}`)
+                const videos = await axios.get(`/api/videos/getvideo/${path}`)
                 setVideos(videos.data)
             } catch (err) {console.log("Error in channel.jsx while fetching user")}
         }
