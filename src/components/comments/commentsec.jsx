@@ -11,6 +11,7 @@ import PostComment from './commentPost'
 const CommentSection=({videoId})=>{
 
     const { currentUser } = useSelector((state) => state.user);
+    console.log(currentUser)
     const imgSrc = currentUser && currentUser.img ? currentUser.img : pfp;
     
     const [comments,setComments]=useState([])

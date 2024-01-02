@@ -24,7 +24,10 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
 
     const tagsNumber=4.8;
     const { currentUser } = useSelector((state) => state.user);
-    const { currentVideo } = useSelector((state) => state.video);
+    // const { currentVideo } = useSelector((state) => state.video);
+
+    const [video,setVideo]=useState({});
+    
     const dispatch = useDispatch();
     const path = useLocation().pathname.split("/")[2];
     const [channel, setChannel] = useState({});
@@ -35,6 +38,7 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
             const videoRes = await axios.get(`/api/videos/find/${path}`);
             const channelRes = await axios.get(`/api/users/find/${videoRes.data.userId}`);
             setChannel(channelRes.data);
+            setVideo(videoRes.data);
             dispatch(fetchSuccess(videoRes.data));
         } catch (err) {}
         };
@@ -42,11 +46,13 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
     }, [path, dispatch]);
 
     const handleLike = async ()=>{
-        await axios.put(`/api/users/like/${currentVideo._id}`)
+        // await axios.put(`/api/users/like/${currentVideo._id}`)
+        await axios.put(`/api/users/like/${video._id}`)
         dispatch(like(currentUser._id))
     }
     const handleDislike = async ()=>{
-        await axios.put(`/api/users/dislike/${currentVideo._id}`)
+        // await axios.put(`/api/users/dislike/${currentVideo._id}`)
+        await axios.put(`/api/users/dislike/${video._id}`)
         dispatch(dislike(currentUser._id))
     }
 
@@ -59,12 +65,14 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
         }
     }
     const handleView = async ()=>{
-        await axios.put(`/api/videos/view/${currentVideo._id}`)
+        // await axios.put(`/api/videos/view/${currentVideo._id}`)
+        await axios.put(`/api/videos/view/${video._id}`)
         dispatch(incrementView());
     }
     useEffect(()=>{
         handleView();
-    },[currentVideo._id],dispatch)
+    // },[currentVideo._id],dispatch)
+    },[video._id],dispatch)
     // Dots Functionality
     const [isDots,setDots]=useState(false);
     const dotsContainerRef = useRef(null);
@@ -93,10 +101,14 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
     }, []);
     const handleWatchLater= async()=>{
         if(currentUser){
-            currentUser.watchLater.includes(currentVideo._id)?
-            await axios.put(`/api/users/watchlater/remove/${currentVideo._id}`):
-            await axios.put(`/api/users/watchlater/add/${currentVideo._id}`)
-            dispatch(watchlater(currentVideo._id));
+            // currentUser.watchLater.includes(currentVideo._id)?
+            currentUser.watchLater.includes(video._id)?
+            // await axios.put(`/api/users/watchlater/remove/${currentVideo._id}`):
+            await axios.put(`/api/users/watchlater/remove/${videoideo._id}`):
+            // await axios.put(`/api/users/watchlater/add/${currentVideo._id}`)
+            await axios.put(`/api/users/watchlater/add/${videoideo._id}`)
+            // dispatch(watchlater(currentVideo._id));
+            dispatch(watchlater(videoideo._id));
         }
     }
     const majorDots=()=>{
@@ -104,6 +116,8 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
         closeDots()
     }
     
+    
+
     return(
         <>
         <div className={`slideSidebar ${isSidebarOpen ? 'slideSidebarOpen' : ''}`}>
@@ -113,9 +127,11 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
             <div className="videopage-helper">
                 <div className="videopage-first">
                     {/* Video Url */}
-                    <video ref={videoRef} className='mv' src={currentVideo.videoUrl} controls autoPlay={true}></video>
+                    {/* <video ref={videoRef} className='mv' src={currentVideo.videoUrl} controls autoPlay={true}></video> */}
+                    <video ref={videoRef} className='mv' src={video.videoUrl} controls autoPlay={true}></video>
                     <div className="mv-mobile-view-something">
-                        <h2 className='mv-title'>{currentVideo.title}</h2>
+                        {/* <h2 className='mv-title'>{currentVideo.title}</h2> */}
+                        <h2 className='mv-title'>{video.title}</h2>
                         <div className="mv-buttons">
                             <div className="mv-buttons-first">
                                 <div className='mv-buttons-first-helper'>
@@ -139,21 +155,26 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
 
                                     {/* Like */}
                                     <div className="mv-like mv-total-like" onClick={handleLike}>
-                                        {currentUser && currentVideo.likes?.includes(currentUser._id)
+                                        {currentUser && video.likes?.includes(currentUser._id)
+                                        // {currentUser && currentVideo.likes?.includes(currentUser._id)
                                             ?
                                                 <img className='rotate-like' src={dislikeactive} alt="" /> 
                                             :
                                                 <img className='rotate-like' src={disliker} alt="" /> 
                                         }
-                                        <div>{currentVideo.likes?.length}</div>
+                                        <div>{video.likes?.length}</div>
+                                        {/* <div>{currentVideo.likes?.length}</div> */}
                                     </div>
 
                                     {/* Dislike */}
                                     <div className="mv-like" onClick={handleDislike}>
-                                        {currentVideo.dislikes?.length >=1 ?
-                                            <div>{currentVideo.dislikes?.length}</div>
+                                        {/* {currentVideo.dislikes?.length >=1 ? */}
+                                        {video.dislikes?.length >=1 ?
+                                            <div>{video.dislikes?.length}</div>
+                                            // <div>{currentVideo.dislikes?.length}</div>
                                          :null}
-                                        {currentUser && currentVideo.dislikes?.includes(currentUser._id)
+                                        {currentUser && video.dislikes?.includes(currentUser._id)
+                                        // {currentUser && currentVideo.dislikes?.includes(currentUser._id)
                                             ?
                                                 <img src={dislikeactive} alt="" />
                                             :
@@ -181,7 +202,8 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
                                                 <div ref={dotsContainerRef} className="mv-dots-abs">
                                                     <div onClick={majorDots} className="mv-dots-menu-unit">
                                                         <img src={save} alt="" />
-                                                        <span>{currentUser && currentUser.watchLater.includes(currentVideo._id)?"Remove from Watch Later":"Save"}</span>
+                                                        {/* <span>{currentUser && currentUser.watchLater.includes(currentVideo._id)?"Remove from Watch Later":"Save"}</span> */}
+                                                        <span>{currentUser && currentUser.watchLater.includes(video._id)?"Remove from Watch Later":"Save"}</span>
                                                     </div>
                                                 </div>  
                                             ):null}
@@ -192,15 +214,19 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
                         </div>
                         <div className="mv-desc">
                             <div className="mv-desc-analytics">
-                                <div className="mv-desc-views">{currentVideo.views} views</div>
-                                <div className="mv-desc-time-elapsed">{format(currentVideo.createdAt)}</div>
+                                {/* <div className="mv-desc-views">{currentVideo.views} views</div> */}
+                                <div className="mv-desc-views">{video.views} views</div>
+                                {/* <div className="mv-desc-time-elapsed">{format(currentVideo.createdAt)}</div> */}
+                                <div className="mv-desc-time-elapsed">{format(video.createdAt)}</div>
                             </div>
                             <p>
-                                {currentVideo.desc}
+                                {/* {currentVideo.desc} */}
+                                {video.desc}
                             </p>
                         </div>
                         <div className="mv-comments">
-                            <CommentSection videoId={currentVideo._id}/>
+                            {/* <CommentSection videoId={currentVideo._id}/> */}
+                            <CommentSection videoId={video._id}/>
                         </div>
                     </div>
                 </div>
@@ -209,7 +235,8 @@ const VideoPage=({isSidebarOpen,resetSidebar})=>{
                     <div className="videopage-second-tags">
                         <TagsSwiper  tagsNumber={tagsNumber}/>
                     </div>
-                    <Recommendation tags={currentVideo.tags} resetSidebar={resetSidebar}/>
+                    {/* <Recommendation tags={currentVideo.tags} resetSidebar={resetSidebar}/> */}
+                    <Recommendation tags={video.tags} resetSidebar={resetSidebar}/>
                     <div className="vs-shorts-box">
                         <h3 className='shorts-vs-grid-heading'>Shorts</h3>
                         <div className="shorts-vs-grid">

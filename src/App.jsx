@@ -5,6 +5,7 @@ import ShortsPage from './components/shorts/shortsPage.jsx';
 import './App.css'
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 function App() {
 
   const [isInputFocused,setIsInputFocused]=useState(false);
@@ -28,6 +29,14 @@ function App() {
     setSidebarStatus(false);
   }
 
+  const { currentUser } = useSelector((state) => state.user);
+  if(currentUser){
+    console.log(currentUser._id)
+  }
+  else{
+    console.log('Not Logged In')
+  }
+
   return (
     <>
       <Header 
@@ -46,7 +55,11 @@ function App() {
         <Route path='/search' element={<Homepage tagsPage={false} channelPage={false} searchPage={true} signPage={false} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
         <Route path='/channel/:id' element={<Homepage tagsPage={false} channelPage={true} searchPage={false} signPage={false} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
         <Route path='/tags/:tag' element={<Homepage tagsPage={true} channelPage={false} searchPage={false} signPage={false} type="random" isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
-        <Route path='/video/:id' element={<VideoPage isSidebarOpen={isSidebarOpen} resetSidebar={resetSidebar}/>}/>
+        <Route path='/video/:id' element={<VideoPage
+          currentUser={currentUser} 
+          isSidebarOpen={isSidebarOpen} 
+          resetSidebar={resetSidebar}/>}
+         />
         <Route path='/short' element={<ShortsPage/>}/>
       </Routes>
     </>
