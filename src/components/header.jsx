@@ -33,7 +33,9 @@ function Header({isInputFocused,handleInputFocus,handleInputBlur,handleSidebar})
     }
     
     const handleSearch = () => {
-        navigate(`/search?q=${searchText}`);
+        if (searchText.trim() !== "") {
+          navigate(`/search?q=${searchText}`);
+        }
       };
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {

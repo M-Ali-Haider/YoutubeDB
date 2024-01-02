@@ -27,7 +27,8 @@
 }
 .su-left{
     height: 201px;
-    width: 360px;
+    min-width: 360px;
+    max-width: 360px;
     border-radius: 10px;
     overflow: hidden;
 }

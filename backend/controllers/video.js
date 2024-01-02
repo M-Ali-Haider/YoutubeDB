@@ -168,13 +168,27 @@ export const getBySearch = async (req, res, next) => {
   const query = req.query.q;
   try {
     const videos = await Video.find({
-      title: { $regex: query, $options: "i" },
+      $or: [
+        { title: { $regex: query, $options: "i" } },
+        { tags: { $regex: query, $options: "i" } },
+        { desc: { $regex: query, $options: "i" } },
+        // Add more criteria as needed, e.g., { otherField: { $regex: query, $options: "i" } },
+        {
+          userId: {
+            $in: await User.find({
+              name: { $regex: query, $options: "i" },
+            }).distinct("_id"),
+          },
+        },
+      ],
     }).limit(40);
+
     res.status(200).json(videos);
   } catch (err) {
     next(err);
   }
 };
+
 
 
 export const getVideoCountByUser = async (req, res, next) => {
