@@ -79,7 +79,7 @@ function Header({isInputFocused,handleInputFocus,handleInputBlur,handleSidebar})
                         </div>
 
                         {/* Search */}
-                        <button className={`search`} onClick={()=>navigate(`/search?q=${searchText}`)}>
+                        <button className={`search`} onClick={handleSearch}>
                             <img src={search} alt="" />
                         </button>
 

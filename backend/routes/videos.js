@@ -1,5 +1,5 @@
 import express from "express";
-import { getWatchLaterAndLikedVideos,getByRVTag,getTags,getUserVideos,addVideo, addView, getVideoCountByUser ,getBySearch, getByTag, yourvids, getVideo, random, sub, trend, watch } from "../controllers/video.js";
+import { deleteVideo,getWatchLaterAndLikedVideos,getByRVTag,getTags,getUserVideos,addVideo, addView, getVideoCountByUser ,getBySearch, getByTag, yourvids, getVideo, random, sub, trend, watch } from "../controllers/video.js";
 import { verifyToken } from "../verifyToken.js";
 
 const router = express.Router();
@@ -7,7 +7,8 @@ const router = express.Router();
 //create a video
 router.post("/", verifyToken, addVideo)
 router.put("/:id", verifyToken, addVideo)
-router.delete("/:id", verifyToken, addVideo)
+router.delete("/:id", verifyToken, deleteVideo);
+
 router.get("/find/:id", getVideo)
 router.put("/view/:id", addView)
 router.get("/trend", trend)

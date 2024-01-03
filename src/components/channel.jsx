@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import GridVideo from './grid/gridVideo'
 import you from '../assets/images/yourvideoopen.svg'
+import GridVideoChannel from './gridVidChannel'
 import SignInButton from './signIn/signInButton'
 import { useSelector } from 'react-redux'
 import '../assets/styles/channel.css'
@@ -70,7 +70,7 @@ const Channel = ({isSidebarOpen,resetSidebar})=>{
 
                 <div className="channel-vids-grid">
                     <h1>Videos</h1>
-                    <GridVideo videos={videos} resetSidebar={resetSidebar}/>
+                    <GridVideoChannel videos={videos} resetSidebar={resetSidebar}/>
                 </div>
             </div>
             
