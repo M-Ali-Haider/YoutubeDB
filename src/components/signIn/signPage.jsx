@@ -26,6 +26,19 @@ const SignPage=()=>{
             dispatch(loginFailure())
         }
     }
+    
+    const handleSignUp = async (e) => {
+        e.preventDefault();
+        dispatch(loginStart());
+        try {
+          const res = await axios.post("api/auth/signup/", { name, email, password });
+          console.log(res.data)
+          dispatch(loginSuccess(res.data));
+          navigate('/');
+        } catch (err) {
+          dispatch(loginFailure());
+        }
+    };
 
     const signInWithGoogle= async ()=>{
         dispatch(loginStart())
@@ -58,7 +71,7 @@ const SignPage=()=>{
                 <input placeholder='Username' type="text" onChange={e=>setName(e.target.value)}/>
                 <input placeholder='Email' type="text" onChange={e=>setEmail(e.target.value)}/>
                 <input placeholder='Password' type="password" onChange={e=>setPassword(e.target.value)}/>
-                <button>Sign up</button>
+                <button onClick={handleSignUp}>Sign up</button>
                 <button onClick={signInWithGoogle}>Signin with Google</button>
             </div>
         </div>

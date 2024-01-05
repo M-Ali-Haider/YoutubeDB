@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 function SidebarClose({home, shorts, subs, you ,homeclose, subopen, youclose}) {
     const {currentUser} = useSelector(state=>state.user)
-    console.log(currentUser?true:false);
     return (
     <div className={`sidebar-close`}>
         <Link className="sb-close-unit" to="/">

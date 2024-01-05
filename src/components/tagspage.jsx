@@ -4,7 +4,9 @@ import { useState,useEffect } from 'react'
 import GridVideo from './grid/gridVideo'
 import axios from 'axios'
 const TagsPage=({resetSidebar})=>{
+    
     const path=useLocation().pathname.split('/')[2]
+
     const [videos,setVideos]=useState([])
     useEffect(() => {
         const fetchVideosFromTags = async () => {
