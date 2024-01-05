@@ -10,7 +10,7 @@ Follow these steps to set up and run the YoutubeDB project locally:
    - Extract the downloaded zip file and open the project in your preferred Integrated Development Environment (IDE).
 
 3. **Open Two Separate Terminals:**
-   - Open two separate terminals in the IDE. (For VS Code, use the shortcut `CTRL + &#96`)
+   - Open two separate terminals in the IDE. (For VS Code, use the shortcut `CTRL + \``)
     ![Open Terminals](HowToRun/2.webp)
 
 4. **Run Commands in the First Terminal (Backend):**
