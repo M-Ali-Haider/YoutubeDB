@@ -30,12 +30,7 @@ function App() {
   }
 
   const { currentUser } = useSelector((state) => state.user);
-  if(currentUser){
-    console.log(currentUser._id)
-  }
-  else{
-    console.log('Not Logged In')
-  }
+  
 
   return (
     <>
