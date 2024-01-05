@@ -1,0 +1,15 @@
+1.  Download Zip File from https://github.com/M-Ali-Haider/YoutubeDB
+2.  Extract and Open via IDE
+3.  Open two seperate terminals in the IDE (For VS Code Shortcut CTRL + `)
+4.  Write commands:
+    -   cd backend
+    -   npm i
+    -   npm start
+
+5.  On the second terminal write commands:
+    -   npm i
+    -   npm run dev
+
+6.  The localhost link will be there click it using Ctrl and Enjoy!
+
+Note:   Watch images if still confused
