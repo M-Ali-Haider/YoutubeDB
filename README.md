@@ -1,6 +1,10 @@
 # YoutubeDB Project Setup
 
-Note: Have Node.js installed [https://nodejs.org/en], You can verify if its installed by writing 'node --v' command in cmd
+Note: Have Node.js installed [https://nodejs.org/en], You can verify if its installed by typing: 
+```
+'node -v'
+```
+command in cmd
 
 Follow these steps to set up and run the YoutubeDB project locally:
 
