@@ -43,7 +43,7 @@ Follow these steps to set up and run the YoutubeDB project locally:
      ```
      npm run dev
      ```
-    ![Run Commands Frontend](HowToRun/3.webp) 
+    ![Run Commands Frontend](HowToRun/4.webp) 
 
 6. **Access Localhost:**
    - Once the servers are running, find the localhost link and open it in your web browser.
