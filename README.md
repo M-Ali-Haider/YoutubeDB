@@ -1,5 +1,6 @@
 # YoutubeDB Project Setup
 
+# This setup is trash nigga Ali Haider a stupid bitch like where is the step to actually download nodejs first??? even then it doesnt run on vs code?? bitch ass nigga GYAATTT
 Follow these steps to set up and run the YoutubeDB project locally:
 
 1. **Download Zip File:**
